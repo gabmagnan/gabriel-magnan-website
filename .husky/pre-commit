@@ -1,0 +1,9 @@
+echo "🔍 Running pre-commit checks..."
+
+# Run lint-staged
+npx lint-staged || {
+  echo "❌ Pre-commit checks failed. Please fix the errors and try committing again."
+  exit 1
+}
+
+echo "✅ Pre-commit checks passed!"
