@@ -10,6 +10,7 @@ import {
   BriefcaseIcon,
   Users2Icon,
 } from 'lucide-react';
+import profile_picture from '$/profile_picture.webp';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';

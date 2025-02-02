@@ -1,11 +1,13 @@
 'use client';
-
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
+import Cookies from 'js-cookie';
 import { LockIcon, KeyIcon, EyeIcon, EyeOffIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
+import { COOKIES_ACCESS_PASSWORD } from '@/env-constants';
 import { useToast } from '@/hooks/use-toast';
 
 const fadeInUp = {
@@ -38,6 +40,8 @@ export default function Password() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
+  const router = useRouter();
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -45,22 +49,10 @@ export default function Password() {
     // Simulate password verification
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    // Replace this with your actual password verification logic
-    if (password === 'your-secret-password') {
-      toast({
-        title: 'Access Granted',
-        description: 'Welcome to the protected area',
-      });
-      // Add your redirect or content reveal logic here
-    } else {
-      toast({
-        title: 'Access Denied',
-        description: 'Invalid password',
-        variant: 'destructive',
-      });
-    }
-
+    Cookies.set(COOKIES_ACCESS_PASSWORD, password, { expires: 7 });
+    router.refresh();
     setIsSubmitting(false);
+    setPassword('');
   };
 
   return (
