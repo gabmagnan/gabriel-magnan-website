@@ -74,6 +74,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
     "@typescript-eslint/eslint-plugin": "^7.3.1",
     "@typescript-eslint/parser": "^7.3.1",
     "eslint-config-prettier": "^9.1.0",
@@ -90,7 +91,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
+      "npx eslint . --ext .tsx --fix",
       "prettier --write"
     ],
     "*.{json,css,md}": [
