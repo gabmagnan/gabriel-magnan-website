@@ -1,3 +1,4 @@
+import { BASE_URL } from '@/env-constants';
 import type { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
@@ -7,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://gabrielmagnan.dev/sitemap.xml',
+    sitemap: `${BASE_URL}/sitemap.xml`,
   };
 }

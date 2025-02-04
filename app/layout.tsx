@@ -4,6 +4,7 @@ import { Footer } from '@/components/footer';
 import { Navigation } from '@/components/navigation';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
+import { BASE_URL } from '@/env-constants';
 import type { Metadata } from 'next';
 
 const jetbrainsMono = JetBrains_Mono({
@@ -15,7 +16,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://gabrielmagnan.dev'),
+  metadataBase: new URL(BASE_URL),
   title: {
     default: 'Gabriel Magnan | Software Engineer',
     template: '%s | Gabriel Magnan',
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://gabrielmagnan.dev',
+    url: BASE_URL,
     title: 'Gabriel Magnan | Software Engineer',
     description:
       'Professional portfolio of Gabriel Magnan, a passionate software engineer specializing in web development.',
@@ -61,7 +62,7 @@ export const metadata: Metadata = {
     google: 'your-google-verification-code',
   },
   alternates: {
-    canonical: 'https://gabrielmagnan.dev',
+    canonical: BASE_URL,
   },
 };
 

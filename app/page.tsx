@@ -10,10 +10,11 @@ import {
   BriefcaseIcon,
   Users2Icon,
 } from 'lucide-react';
-import profile_picture from '$/profile_picture.webp';
+import profile_picture from '$/assets/profile_picture.webp';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { BASE_URL } from '@/env-constants';
 
 const skills = [
   'React',
@@ -61,7 +62,7 @@ const profiles = [
     name: 'Portfolio',
     icon: Globe2Icon,
     description: 'Visit my personal website',
-    url: 'https://gabrielmagnan.dev',
+    url: BASE_URL,
     color: 'text-green-500',
   },
   {
@@ -127,7 +128,7 @@ export default function Home() {
         <motion.div className="flex-1 space-y-6" variants={staggerContainer}>
           <div className="space-y-4">
             <motion.h1
-              className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-5xl font-bold tracking-tight text-transparent"
+              className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-5xl font-bold leading-tight tracking-tight text-transparent md:leading-[1.2]"
               variants={fadeInUp}
             >
               {`Hi, I'm Gabriel Magnan 👋`}
@@ -189,7 +190,8 @@ export default function Home() {
             placeholder="blur"
             quality={75}
             sizes="(max-width: 768px) 192px, 256px"
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+            src={profile_picture}
+            //src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
           />
           <motion.div
             animate={{ opacity: 0.1 }}
