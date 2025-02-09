@@ -3,11 +3,11 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import {
+  BriefcaseIcon,
   GithubIcon,
+  Globe2Icon,
   LinkedinIcon,
   TwitterIcon,
-  Globe2Icon,
-  BriefcaseIcon,
   Users2Icon,
 } from 'lucide-react';
 import profile_picture from '$/assets/profile_picture.webp';
@@ -15,18 +15,41 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { BASE_URL } from '@/env-constants';
+import { type TSkill } from '@/types/Skill';
 
-const skills = [
-  'React',
-  'TypeScript',
-  'Next.js',
-  'Node.js',
-  'Python',
-  'AWS',
-  'Docker',
-  'GraphQL',
-  'PostgreSQL',
-  'MongoDB',
+const skills: TSkill[] = [
+  {
+    name: 'React',
+    iconName: 'react',
+  },
+  {
+    name: 'TypeScript',
+    iconName: 'typescript',
+  },
+  {
+    name: 'Next.js',
+    iconName: 'nextjs',
+  },
+  {
+    name: 'Node.js',
+    iconName: 'nodejs',
+  },
+  {
+    name: 'Python',
+    iconName: 'python',
+  },
+  {
+    name: 'AWS',
+    iconName: 'aws',
+  },
+  {
+    name: 'Docker',
+    iconName: 'docker',
+  },
+  {
+    name: 'MongoDB',
+    iconName: 'mongodb',
+  },
 ];
 
 const profiles = [
@@ -231,9 +254,9 @@ export default function Home() {
             <Card className="h-full space-y-4 bg-card/50 p-6 backdrop-blur-sm">
               <h3 className="text-xl font-semibold">Skills</h3>
               <div className="flex flex-wrap gap-2">
-                {skills.map((skill) => (
-                  <Badge key={skill} variant="skill">
-                    {skill}
+                {skills.map((skill: TSkill) => (
+                  <Badge key={skill.name} icon={skill.iconName} variant="skill">
+                    {skill.name}
                   </Badge>
                 ))}
               </div>
