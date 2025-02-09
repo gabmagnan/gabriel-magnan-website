@@ -29,7 +29,7 @@ export interface BadgeProps
     VariantProps<typeof badgeVariants> {
   width?: number;
   height?: number;
-  icon: IconName;
+  icon?: IconName;
 }
 
 function Badge({
@@ -47,8 +47,6 @@ function Badge({
     theme === 'dark' && darkIconName && darkIconName in iconPaths
       ? darkIconName
       : icon;
-
-  console.log('selectedIcon', selectedIcon);
 
   return (
     <div className={cn(badgeVariants({ variant }), className)} {...props}>
