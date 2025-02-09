@@ -4,7 +4,7 @@ import Icon, { type IconName } from '@/components/ui/icon';
 import { cn } from '@/lib/utils';
 
 const badgeVariants = cva(
-  'inline-flex items-center rounded-full border px-2 py-1 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
+  'inline-flex items-center rounded-full border px-2 py-1 text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
   {
     variants: {
       variant: {
@@ -28,7 +28,7 @@ export interface BadgeProps
     VariantProps<typeof badgeVariants> {
   width?: number;
   height?: number;
-  icon: IconName;
+  icon?: IconName;
 }
 
 function Badge({
@@ -41,7 +41,9 @@ function Badge({
 }: BadgeProps) {
   return (
     <div className={cn(badgeVariants({ variant }), className)} {...props}>
-      <Icon className="me-2" height={height} icon={icon} width={width} />
+      {icon && (
+        <Icon className="me-2" height={height} icon={icon} width={width} />
+      )}
       {props.children}
     </div>
   );
