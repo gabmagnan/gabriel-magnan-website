@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import Icon, { type IconName } from '@/components/ui/icon';
+import { useTheme } from 'next-themes';
+import Icon, { type IconName, iconPaths } from '@/components/ui/icon';
 import { cn } from '@/lib/utils';
 
 const badgeVariants = cva(
@@ -28,7 +29,7 @@ export interface BadgeProps
     VariantProps<typeof badgeVariants> {
   width?: number;
   height?: number;
-  icon?: IconName;
+  icon: IconName;
 }
 
 function Badge({
@@ -39,10 +40,25 @@ function Badge({
   icon,
   ...props
 }: BadgeProps) {
+  const { theme } = useTheme();
+
+  const darkIconName = icon ? (`${icon}_dark` as IconName) : undefined;
+  const selectedIcon =
+    theme === 'dark' && darkIconName && darkIconName in iconPaths
+      ? darkIconName
+      : icon;
+
+  console.log('selectedIcon', selectedIcon);
+
   return (
     <div className={cn(badgeVariants({ variant }), className)} {...props}>
-      {icon && (
-        <Icon className="me-2" height={height} icon={icon} width={width} />
+      {selectedIcon && (
+        <Icon
+          className="me-2"
+          height={height}
+          icon={selectedIcon}
+          width={width}
+        />
       )}
       {props.children}
     </div>
