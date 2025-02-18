@@ -2,9 +2,9 @@
 
 import { motion } from 'framer-motion';
 import {
+  BuildingIcon,
   DownloadIcon,
   GraduationCapIcon,
-  BuildingIcon,
   HeartIcon,
   LanguagesIcon,
 } from 'lucide-react';
@@ -134,7 +134,11 @@ export default function Resume() {
           </motion.p>
           <motion.div variants={fadeInUp}>
             <Button asChild>
-              <a href="/resume.pdf" rel="noopener noreferrer" target="_blank">
+              <a
+                href="/gabriel_magnan_resume.pdf"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 <DownloadIcon className="mr-2 size-4" />
                 Download Full Resume
               </a>

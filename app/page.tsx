@@ -7,24 +7,26 @@ import {
   GithubIcon,
   Globe2Icon,
   LinkedinIcon,
-  TwitterIcon,
   Users2Icon,
 } from 'lucide-react';
 import profile_picture from '$/assets/profile_picture.webp';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { BASE_URL } from '@/env-constants';
-import { type TSkill } from '@/types/Skill';
+import { type TSkill } from '@/types/skill';
 
 const skills: TSkill[] = [
   {
-    name: 'React',
+    name: 'React.js',
     iconName: 'react',
   },
   {
     name: 'TypeScript',
     iconName: 'typescript',
+  },
+  {
+    name: 'JavaScript',
+    iconName: 'javascript',
   },
   {
     name: 'Next.js',
@@ -39,8 +41,16 @@ const skills: TSkill[] = [
     iconName: 'python',
   },
   {
+    name: 'GCP',
+    iconName: 'googleCloud',
+  },
+  {
     name: 'AWS',
     iconName: 'aws',
+  },
+  {
+    name: 'Vercel',
+    iconName: 'vercel',
   },
   {
     name: 'Docker',
@@ -50,6 +60,10 @@ const skills: TSkill[] = [
     name: 'MongoDB',
     iconName: 'mongodb',
   },
+  {
+    name: 'MySQL',
+    iconName: 'mysql',
+  },
 ];
 
 const profiles = [
@@ -57,21 +71,21 @@ const profiles = [
     name: 'Malt',
     icon: BriefcaseIcon,
     description: 'Hire me for freelance projects',
-    url: 'https://www.malt.fr/profile/gabrielmagnan',
+    url: 'https://www.malt.fr/profile/gabrielmagnan2',
     color: 'text-rose-500',
   },
   {
     name: 'Collective',
     icon: Users2Icon,
     description: 'View my developer collective profile',
-    url: 'https://collective.work/u/gabrielmagnan',
+    url: 'https://www.collective.work/profile/gabriel-magnan',
     color: 'text-purple-500',
   },
   {
     name: 'LinkedIn',
     icon: LinkedinIcon,
     description: 'Connect with me professionally',
-    url: 'https://linkedin.com/in/gabrielmagnan',
+    url: 'https://www.linkedin.com/in/gabriel-magnan/',
     color: 'text-blue-500',
   },
   {
@@ -85,15 +99,8 @@ const profiles = [
     name: 'Portfolio',
     icon: Globe2Icon,
     description: 'Visit my personal website',
-    url: BASE_URL,
+    url: `${BASE_URL}/portfolio`,
     color: 'text-green-500',
-  },
-  {
-    name: 'Twitter',
-    icon: TwitterIcon,
-    description: 'Follow me for tech insights',
-    url: 'https://twitter.com/gabrielmagnan',
-    color: 'text-sky-500',
   },
 ];
 
@@ -164,41 +171,6 @@ export default function Home() {
               exceptional digital experiences.
             </motion.p>
           </div>
-          <motion.div className="flex gap-4" variants={fadeInUp}>
-            <Button
-              asChild
-              className="bg-gradient-to-r from-primary to-purple-600 hover:opacity-90"
-            >
-              <a
-                href="https://github.com/gabrielmagnan"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <GithubIcon className="mr-2 size-4" />
-                GitHub
-              </a>
-            </Button>
-            <Button asChild variant="outline">
-              <a
-                href="https://linkedin.com/in/gabrielmagnan"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <LinkedinIcon className="mr-2 size-4" />
-                LinkedIn
-              </a>
-            </Button>
-            <Button asChild variant="outline">
-              <a
-                href="https://twitter.com/gabrielmagnan"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <TwitterIcon className="mr-2 size-4" />
-                Twitter
-              </a>
-            </Button>
-          </motion.div>
         </motion.div>
         <motion.div
           className="relative size-48 md:size-64"

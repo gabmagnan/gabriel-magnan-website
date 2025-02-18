@@ -3,12 +3,11 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Cookies from 'js-cookie';
-import { LockIcon, KeyIcon, EyeIcon, EyeOffIcon } from 'lucide-react';
+import { EyeIcon, EyeOffIcon, KeyIcon, LockIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { COOKIES_ACCESS_PASSWORD } from '@/env-constants';
-import { useToast } from '@/hooks/use-toast';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -38,7 +37,6 @@ export default function Password() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
 
   const router = useRouter();
 
