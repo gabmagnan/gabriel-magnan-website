@@ -5,18 +5,14 @@ import { motion } from 'framer-motion';
 import {
   GithubIcon,
   LinkedinIcon,
-  TwitterIcon,
   MailIcon,
-  SunIcon,
   MoonIcon,
+  SunIcon,
+  TwitterIcon,
 } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
-
-const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
+import { fadeInUpAnimation } from '@/utils/animations';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -49,7 +45,10 @@ export function Footer() {
     <motion.footer
       className="border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
       initial="hidden"
-      variants={fadeIn}
+      variants={fadeInUpAnimation({
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0 },
+      })}
       viewport={{ once: true }}
       whileInView="visible"
     >

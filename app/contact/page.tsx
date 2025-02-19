@@ -8,30 +8,10 @@ import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: 'spring',
-      stiffness: 100,
-      damping: 15,
-    },
-  },
-};
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3,
-    },
-  },
-};
+import {
+  fadeInUpAnimation,
+  staggerContainerAnimation,
+} from '@/utils/animations';
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -59,16 +39,19 @@ export default function Contact() {
         animate="visible"
         className="mx-auto max-w-2xl space-y-8"
         initial="hidden"
-        variants={staggerContainer}
+        variants={staggerContainerAnimation()}
       >
-        <motion.div className="space-y-4 text-center" variants={fadeInUp}>
+        <motion.div
+          className="space-y-4 text-center"
+          variants={fadeInUpAnimation()}
+        >
           <h1 className="text-4xl font-bold tracking-tight">Contact Me</h1>
           <p className="text-xl text-muted-foreground">
             Have a question or want to work together?
           </p>
         </motion.div>
 
-        <motion.div variants={fadeInUp}>
+        <motion.div variants={fadeInUpAnimation()}>
           <Card className="bg-card/50 p-6 backdrop-blur-sm">
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="space-y-4">
@@ -136,7 +119,10 @@ export default function Contact() {
           </Card>
         </motion.div>
 
-        <motion.div className="space-y-4 text-center" variants={fadeInUp}>
+        <motion.div
+          className="space-y-4 text-center"
+          variants={fadeInUpAnimation()}
+        >
           <div className="inline-flex items-center justify-center gap-2 text-muted-foreground">
             <MailIcon className="size-5" />
             <span>Or email me directly at:</span>

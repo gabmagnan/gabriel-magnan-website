@@ -13,6 +13,10 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import {
+  fadeInUpAnimation,
+  staggerContainerAnimation,
+} from '@/utils/animations';
 
 const projects = [
   {
@@ -71,30 +75,6 @@ const projects = [
   },
 ];
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: 'spring',
-      stiffness: 100,
-      damping: 15,
-    },
-  },
-};
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3,
-    },
-  },
-};
-
 export default function Portfolio() {
   const featuredProjects = projects.filter((project) => project.featured);
   const otherProjects = projects.filter((project) => !project.featured);
@@ -105,16 +85,19 @@ export default function Portfolio() {
         animate="visible"
         className="space-y-12"
         initial="hidden"
-        variants={staggerContainer}
+        variants={staggerContainerAnimation()}
       >
-        <motion.div className="space-y-4 text-center" variants={fadeInUp}>
+        <motion.div
+          className="space-y-4 text-center"
+          variants={fadeInUpAnimation()}
+        >
           <h1 className="text-4xl font-bold tracking-tight">Portfolio</h1>
           <p className="text-xl text-muted-foreground">
             A showcase of my recent projects and technical achievements
           </p>
         </motion.div>
 
-        <motion.section className="space-y-6" variants={fadeInUp}>
+        <motion.section className="space-y-6" variants={fadeInUpAnimation()}>
           <h2 className="flex items-center justify-center gap-2 text-2xl font-semibold">
             <StarIcon className="size-5 text-yellow-500" />
             Featured Projects
@@ -124,7 +107,7 @@ export default function Portfolio() {
               <motion.div
                 key={project.title}
                 transition={{ duration: 0.2 }}
-                variants={fadeInUp}
+                variants={fadeInUpAnimation()}
                 whileHover={{ y: -5 }}
               >
                 <Card className="group flex h-full flex-col overflow-hidden">
@@ -186,14 +169,14 @@ export default function Portfolio() {
           </div>
         </motion.section>
 
-        <motion.section className="space-y-6" variants={fadeInUp}>
+        <motion.section className="space-y-6" variants={fadeInUpAnimation()}>
           <h2 className="text-center text-2xl font-semibold">Other Projects</h2>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {otherProjects.map((project) => (
               <motion.div
                 key={project.title}
                 transition={{ duration: 0.2 }}
-                variants={fadeInUp}
+                variants={fadeInUpAnimation()}
                 whileHover={{ y: -5 }}
               >
                 <Card className="group flex h-full flex-col">

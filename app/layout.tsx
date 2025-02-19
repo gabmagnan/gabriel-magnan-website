@@ -1,5 +1,6 @@
 import './globals.css';
 import { JetBrains_Mono } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 import { Footer } from '@/components/footer';
 import { Navigation } from '@/components/navigation';
 import { ThemeProvider } from '@/components/theme-provider';
@@ -94,6 +95,7 @@ export default function RootLayout({
             <main className="flex-1 bg-background">
               <div className="container mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
                 {children}
+                <Analytics />
               </div>
             </main>
             <Footer />

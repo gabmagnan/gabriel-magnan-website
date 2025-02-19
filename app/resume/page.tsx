@@ -2,15 +2,19 @@
 
 import { motion } from 'framer-motion';
 import {
+  BuildingIcon,
   DownloadIcon,
   GraduationCapIcon,
-  BuildingIcon,
   HeartIcon,
   LanguagesIcon,
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import {
+  fadeInUpAnimation,
+  staggerContainerAnimation,
+} from '@/utils/animations';
 
 const experience = [
   {
@@ -86,30 +90,6 @@ const hobbies = [
   'Reading',
 ];
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: 'spring',
-      stiffness: 100,
-      damping: 15,
-    },
-  },
-};
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3,
-    },
-  },
-};
-
 export default function Resume() {
   return (
     <div className="py-12">
@@ -117,24 +97,28 @@ export default function Resume() {
         animate="visible"
         className="space-y-12"
         initial="hidden"
-        variants={staggerContainer}
+        variants={staggerContainerAnimation()}
       >
         <div className="space-y-4">
           <motion.h1
             className="text-4xl font-bold tracking-tight"
-            variants={fadeInUp}
+            variants={fadeInUpAnimation()}
           >
             Resume
           </motion.h1>
           <motion.p
             className="text-xl text-muted-foreground"
-            variants={fadeInUp}
+            variants={fadeInUpAnimation()}
           >
             My professional journey and qualifications
           </motion.p>
-          <motion.div variants={fadeInUp}>
+          <motion.div variants={fadeInUpAnimation()}>
             <Button asChild>
-              <a href="/resume.pdf" rel="noopener noreferrer" target="_blank">
+              <a
+                href="/gabriel_magnan_resume.pdf"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 <DownloadIcon className="mr-2 size-4" />
                 Download Full Resume
               </a>
@@ -143,7 +127,7 @@ export default function Resume() {
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[2fr_1fr]">
-          <motion.div className="space-y-6" variants={fadeInUp}>
+          <motion.div className="space-y-6" variants={fadeInUpAnimation()}>
             <h2 className="flex items-center gap-2 text-2xl font-semibold">
               <BuildingIcon className="size-6" />
               Experience
@@ -179,7 +163,7 @@ export default function Resume() {
             </div>
           </motion.div>
 
-          <motion.div className="space-y-8" variants={fadeInUp}>
+          <motion.div className="space-y-8" variants={fadeInUpAnimation()}>
             <div className="space-y-6">
               <h2 className="flex items-center gap-2 text-2xl font-semibold">
                 <GraduationCapIcon className="size-6" />
