@@ -8,30 +8,10 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { COOKIES_ACCESS_PASSWORD } from '@/env-constants';
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: 'spring',
-      stiffness: 100,
-      damping: 15,
-    },
-  },
-};
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3,
-    },
-  },
-};
+import {
+  fadeInUpAnimation,
+  staggerContainerAnimation,
+} from '@/utils/animations';
 
 export default function Password() {
   const [password, setPassword] = useState('');
@@ -59,9 +39,12 @@ export default function Password() {
         animate="visible"
         className="mx-auto max-w-md space-y-8"
         initial="hidden"
-        variants={staggerContainer}
+        variants={staggerContainerAnimation()}
       >
-        <motion.div className="space-y-4 text-center" variants={fadeInUp}>
+        <motion.div
+          className="space-y-4 text-center"
+          variants={fadeInUpAnimation()}
+        >
           <div className="flex justify-center">
             <div className="flex size-16 items-center justify-center rounded-full bg-primary/10">
               <LockIcon className="size-8 text-primary" />
@@ -73,7 +56,7 @@ export default function Password() {
           </p>
         </motion.div>
 
-        <motion.div variants={fadeInUp}>
+        <motion.div variants={fadeInUpAnimation()}>
           <Card className="bg-card/50 p-6 backdrop-blur-sm">
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="space-y-2">

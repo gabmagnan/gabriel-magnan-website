@@ -14,6 +14,11 @@ import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import { BASE_URL } from '@/env-constants';
 import { type TSkill } from '@/types/skill';
+import {
+  fadeInUpAnimation,
+  imageAnimation,
+  staggerContainerAnimation,
+} from '@/utils/animations';
 
 const skills: TSkill[] = [
   {
@@ -104,48 +109,6 @@ const profiles = [
   },
 ];
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: 'spring',
-      stiffness: 100,
-      damping: 15,
-    },
-  },
-};
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3,
-    },
-  },
-};
-
-const imageAnimation = {
-  hidden: {
-    opacity: 0,
-    scale: 0.8,
-    rotate: -10,
-  },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    rotate: 0,
-    transition: {
-      type: 'spring',
-      stiffness: 100,
-      damping: 20,
-    },
-  },
-};
-
 export default function Home() {
   return (
     <div className="w-full space-y-16 py-12">
@@ -153,19 +116,22 @@ export default function Home() {
         animate="visible"
         className="flex flex-col-reverse items-center gap-8 md:flex-row"
         initial="hidden"
-        variants={staggerContainer}
+        variants={staggerContainerAnimation()}
       >
-        <motion.div className="flex-1 space-y-6" variants={staggerContainer}>
+        <motion.div
+          className="flex-1 space-y-6"
+          variants={staggerContainerAnimation()}
+        >
           <div className="space-y-4">
             <motion.h1
               className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-5xl font-bold leading-tight tracking-tight text-transparent md:leading-[1.2]"
-              variants={fadeInUp}
+              variants={fadeInUpAnimation()}
             >
               {`Hi, I'm Gabriel Magnan 👋`}
             </motion.h1>
             <motion.p
               className="text-xl leading-relaxed text-muted-foreground"
-              variants={fadeInUp}
+              variants={fadeInUpAnimation()}
             >
               A passionate Software Engineer specializing in building
               exceptional digital experiences.
@@ -174,7 +140,7 @@ export default function Home() {
         </motion.div>
         <motion.div
           className="relative size-48 md:size-64"
-          variants={imageAnimation}
+          variants={imageAnimation()}
         >
           <Image
             fill
@@ -200,18 +166,18 @@ export default function Home() {
       <motion.section
         className="space-y-8"
         initial="hidden"
-        variants={staggerContainer}
+        variants={staggerContainerAnimation()}
         viewport={{ once: true, margin: '-100px' }}
         whileInView="visible"
       >
         <motion.h2
           className="text-center text-3xl font-bold tracking-tight"
-          variants={fadeInUp}
+          variants={fadeInUpAnimation()}
         >
           About Me
         </motion.h2>
         <div className="grid gap-8 md:grid-cols-2">
-          <motion.div variants={fadeInUp}>
+          <motion.div variants={fadeInUpAnimation()}>
             <Card className="h-full space-y-4 bg-card/50 p-6 backdrop-blur-sm">
               <h3 className="text-xl font-semibold">Background</h3>
               <p className="leading-relaxed text-muted-foreground">
@@ -222,7 +188,7 @@ export default function Home() {
               </p>
             </Card>
           </motion.div>
-          <motion.div variants={fadeInUp}>
+          <motion.div variants={fadeInUpAnimation()}>
             <Card className="h-full space-y-4 bg-card/50 p-6 backdrop-blur-sm">
               <h3 className="text-xl font-semibold">Skills</h3>
               <div className="flex flex-wrap gap-2">
@@ -240,19 +206,19 @@ export default function Home() {
       <motion.section
         className="space-y-8"
         initial="hidden"
-        variants={staggerContainer}
+        variants={staggerContainerAnimation()}
         viewport={{ once: true, margin: '-100px' }}
         whileInView="visible"
       >
         <motion.h2
           className="text-center text-3xl font-bold tracking-tight"
-          variants={fadeInUp}
+          variants={fadeInUpAnimation()}
         >
           Where to Find Me
         </motion.h2>
         <motion.div
           className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
-          variants={staggerContainer}
+          variants={staggerContainerAnimation()}
         >
           {profiles.map((profile) => {
             const Icon = profile.icon;
@@ -263,7 +229,7 @@ export default function Home() {
                 href={profile.url}
                 rel="noopener noreferrer"
                 target="_blank"
-                variants={fadeInUp}
+                variants={fadeInUpAnimation()}
               >
                 <Card className="h-full bg-card/50 p-6 backdrop-blur-sm">
                   <div className="space-y-4">
