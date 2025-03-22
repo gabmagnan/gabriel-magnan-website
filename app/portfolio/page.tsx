@@ -87,15 +87,21 @@ export default function Portfolio() {
         initial="hidden"
         variants={staggerContainerAnimation()}
       >
-        <motion.div
-          className="space-y-4 text-center"
-          variants={fadeInUpAnimation()}
-        >
-          <h1 className="text-4xl font-bold tracking-tight">Portfolio</h1>
-          <p className="text-xl text-muted-foreground">
+        <div className="space-y-4">
+          <motion.h1
+            className="text-4xl font-bold tracking-tight"
+            variants={fadeInUpAnimation()}
+          >
+            Portfolio
+          </motion.h1>
+
+          <motion.p
+            className="text-xl text-muted-foreground"
+            variants={fadeInUpAnimation()}
+          >
             A showcase of my recent projects and technical achievements
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
 
         <motion.section className="space-y-6" variants={fadeInUpAnimation()}>
           <h2 className="flex items-center justify-center gap-2 text-2xl font-semibold">

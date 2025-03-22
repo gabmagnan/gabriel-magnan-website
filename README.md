@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website built with Next.js 15, TypeScript, Tailwind CSS, and Framer Motion.
 
-![Portfolio Preview](https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d)
+![Portfolio Preview](/public/assets/profile_picture.webp)
 
 ## Features
 
