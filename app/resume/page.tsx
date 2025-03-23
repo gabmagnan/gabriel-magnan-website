@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import {
-  BuildingIcon,
+  BriefcaseBusiness,
   DownloadIcon,
   GraduationCapIcon,
   HeartIcon,
@@ -11,19 +11,41 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { type TExperience } from '@/types/experience';
 import {
   fadeInUpAnimation,
   staggerContainerAnimation,
 } from '@/utils/animations';
 
-const experience = [
+const experience: TExperience[] = [
   {
-    title: 'Senior Software Engineer',
-    company: 'Tech Solutions Inc.',
-    period: '2021 - Present',
+    title: 'Full-Stack Web Developer',
+    company: 'Artmajeur by YourArt',
+    period: '2022 - Present',
     description:
-      'Led development of scalable web applications using React and Node.js. Mentored junior developers and implemented best practices.',
-    technologies: ['React', 'Node.js', 'AWS', 'TypeScript'],
+      'Contributed to the early development of a web application by building new features, integrating backend services, and implementing automation to enhance user experience, data flow, and deployment efficiency for a platform supporting up to a million monthly users.',
+    technologies: [
+      {
+        name: 'React',
+        iconName: 'react',
+      },
+      {
+        name: 'Next',
+        iconName: 'nextjs',
+      },
+      {
+        name: 'TypeScript',
+        iconName: 'typescript',
+      },
+      {
+        name: 'Python',
+        iconName: 'python',
+      },
+      {
+        name: 'GCP',
+        iconName: 'googleCloud',
+      },
+    ],
   },
   {
     title: 'Full Stack Developer',
@@ -31,7 +53,20 @@ const experience = [
     period: '2019 - 2021',
     description:
       'Developed and maintained multiple client projects. Implemented CI/CD pipelines and improved development workflows.',
-    technologies: ['Vue.js', 'Python', 'Docker', 'PostgreSQL'],
+    technologies: [
+      {
+        name: 'React',
+        iconName: 'react',
+      },
+      {
+        name: 'Node.js',
+        iconName: 'nodejs',
+      },
+      {
+        name: 'MongoDB',
+        iconName: 'mongodb',
+      },
+    ],
   },
   {
     title: 'Software Developer',
@@ -39,7 +74,20 @@ const experience = [
     period: '2018 - 2019',
     description:
       'Built and launched MVP for a SaaS platform. Worked directly with clients to gather requirements and implement features.',
-    technologies: ['React', 'Express', 'MongoDB', 'Redux'],
+    technologies: [
+      {
+        name: 'React',
+        iconName: 'react',
+      },
+      {
+        name: 'Node.js',
+        iconName: 'nodejs',
+      },
+      {
+        name: 'MongoDB',
+        iconName: 'mongodb',
+      },
+    ],
   },
 ];
 
@@ -129,7 +177,7 @@ export default function Resume() {
         <div className="grid gap-8 lg:grid-cols-[2fr_1fr]">
           <motion.div className="space-y-6" variants={fadeInUpAnimation()}>
             <h2 className="flex items-center gap-2 text-2xl font-semibold">
-              <BuildingIcon className="size-6" />
+              <BriefcaseBusiness className="size-6" />
               Experience
             </h2>
             <div className="space-y-6">
@@ -149,11 +197,11 @@ export default function Resume() {
                     <div className="flex flex-wrap gap-2">
                       {job.technologies.map((tech) => (
                         <Badge
-                          key={tech}
-                          className="bg-background/50"
-                          variant="secondary"
+                          key={tech.name}
+                          icon={tech.iconName}
+                          variant="skill"
                         >
-                          {tech}
+                          {tech.name}
                         </Badge>
                       ))}
                     </div>
