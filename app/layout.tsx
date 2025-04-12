@@ -1,5 +1,7 @@
 import './globals.css';
+import { type ReactNode } from 'react';
 import { JetBrains_Mono } from 'next/font/google';
+import Head from 'next/head';
 import { Analytics } from '@vercel/analytics/react';
 import { Footer } from '@/components/footer';
 import { Navigation } from '@/components/navigation';
@@ -59,31 +61,31 @@ export const metadata: Metadata = {
     creator: '@gabrielmagnan',
     images: ['/images/og-image.jpg'],
   },
-  verification: {
-    google: 'your-google-verification-code',
-  },
   alternates: {
     canonical: BASE_URL,
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html suppressHydrationWarning lang="en">
-      <head>
-        <link href="/favicon.ico" rel="icon" />
+      <Head>
+        <link href="/favicon.ico" rel="icon" sizes="16x16" />
         <link
           href="/apple-touch-icon.png"
           rel="apple-touch-icon"
           sizes="180x180"
+          type="image/png"
+        />
+        <link
+          href="/android-icon.png"
+          rel="icon"
+          sizes="192x192"
+          type="image/png"
         />
         <link href="/site.webmanifest" rel="manifest" />
         <meta content="#000000" name="theme-color" />
-      </head>
+      </Head>
       <body className={`${jetbrainsMono.variable} font-mono`}>
         <ThemeProvider
           attribute="class"

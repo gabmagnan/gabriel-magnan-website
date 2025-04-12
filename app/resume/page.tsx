@@ -1,5 +1,6 @@
 'use client';
 
+import { Fragment, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   BriefcaseBusiness,
@@ -19,19 +20,27 @@ import {
 
 const experience: TExperience[] = [
   {
-    title: 'Full-Stack Web Developer',
-    company: 'Artmajeur by YourArt',
+    title: 'Full Stack Web Developer',
+    company: 'ArtMajeur by YourArt',
     period: '2022 - Present',
     description:
-      'Contributed to the early development of a web application by building new features, integrating backend services, and implementing automation to enhance user experience, data flow, and deployment efficiency for a platform supporting up to a million monthly users.',
+      '<div class="mt-0">• Contributing to the early stages of the web application, and participated in the development process <strong class="font-bold text-black dark:text-white">6 months before production release.</strong>\n</div>' +
+      '<div class="mt-3">• Developed and implemented new frontend features using <strong class="font-bold text-black dark:text-white">TypeScript</strong> and <strong class="font-bold text-black dark:text-white">React.js</strong>, enhancing user experience and increasing engagement for a platform supporting up to <strong class="font-bold text-black dark:text-white">1 million unique users monthly.</strong>\n</div>' +
+      '<div class="mt-3">• Integrated backend APIs and third-party services (Stripe, Google Maps) with <strong class="font-bold text-black dark:text-white">Python</strong> and <strong class="font-bold text-black dark:text-white">MongoDB</strong>, ensuring seamless data flow and robust functionality across the application.\n</div>' +
+      '<div class="mt-3">• Implemented automated testing and <strong class="font-bold text-black dark:text-white">CI/CD pipelines</strong>, enhancing code reliability and <strong class="font-bold text-black dark:text-white">accelerating deployment processes.</strong>\n </div>' +
+      '<div class="mt-3">• Implemented <strong class="font-bold text-black dark:text-white">SEO</strong> strategy with <strong class="font-bold text-black dark:text-white">Next.js</strong> (SSG, SSR, images optimization, internationalization, canonical URL, internal links, sitemap, opengraph, metadata, ...).</div>',
     technologies: [
       {
-        name: 'React',
+        name: 'React.js',
         iconName: 'react',
       },
       {
-        name: 'Next',
+        name: 'Next.js',
         iconName: 'nextjs',
+      },
+      {
+        name: 'Vercel',
+        iconName: 'vercel',
       },
       {
         name: 'TypeScript',
@@ -42,8 +51,16 @@ const experience: TExperience[] = [
         iconName: 'python',
       },
       {
+        name: 'React Native',
+        iconName: 'react_native',
+      },
+      {
         name: 'GCP',
         iconName: 'googleCloud',
+      },
+      {
+        name: 'MongoDB',
+        iconName: 'mongodb',
       },
     ],
   },
@@ -55,7 +72,7 @@ const experience: TExperience[] = [
       'Developed and maintained multiple client projects. Implemented CI/CD pipelines and improved development workflows.',
     technologies: [
       {
-        name: 'React',
+        name: 'React.js',
         iconName: 'react',
       },
       {
@@ -76,7 +93,7 @@ const experience: TExperience[] = [
       'Built and launched MVP for a SaaS platform. Worked directly with clients to gather requirements and implement features.',
     technologies: [
       {
-        name: 'React',
+        name: 'React.js',
         iconName: 'react',
       },
       {
@@ -139,6 +156,22 @@ const hobbies = [
 ];
 
 export default function Resume() {
+  const formatDescription = (description: string) => {
+    return description.split('\n').map((line, index) => (
+      <Fragment key={index}>
+        <span dangerouslySetInnerHTML={{ __html: line }} />
+      </Fragment>
+    ));
+  };
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
   return (
     <div className="py-12">
       <motion.div
@@ -186,14 +219,16 @@ export default function Resume() {
                   key={job.title}
                   className="bg-card/50 p-6 backdrop-blur-sm"
                 >
-                  <div className="space-y-4">
+                  <div className="space-y-5">
                     <div>
                       <h3 className="text-xl font-semibold">{job.title}</h3>
                       <p className="text-muted-foreground">
                         {job.company} • {job.period}
                       </p>
                     </div>
-                    <p className="text-muted-foreground">{job.description}</p>
+                    <p className="whitespace-pre-line text-muted-foreground">
+                      {formatDescription(job.description)}
+                    </p>
                     <div className="flex flex-wrap gap-2">
                       {job.technologies.map((tech) => (
                         <Badge

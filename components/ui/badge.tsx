@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { useTheme } from 'next-themes';
 import Icon, { type IconName, iconPaths } from '@/components/ui/icon';
@@ -41,6 +42,14 @@ function Badge({
   ...props
 }: BadgeProps) {
   const { theme } = useTheme();
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   const darkIconName = icon ? (`${icon}_dark` as IconName) : undefined;
   const selectedIcon =

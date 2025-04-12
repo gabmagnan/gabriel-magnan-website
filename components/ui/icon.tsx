@@ -26,6 +26,7 @@ export type IconName = keyof typeof iconPaths;
 export const iconPaths = {
   aws: aws_logo,
   react: react_js_logo,
+  react_native: react_js_logo,
   googleCloud: google_cloud_logo,
   python: python_logo,
   mongodb: mongodb_logo,
