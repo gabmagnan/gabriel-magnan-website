@@ -14,7 +14,7 @@ export const sendEmail = async ({ name, from, message }: EmailRequest) => {
   const mailOptions = {
     from: from,
     to: GMAIL_USER,
-    subject: `New message from ${name} (${from})`,
+    subject: `[gabriel-magnan-website-portfolio] New message from ${name} (${from})`,
     text: message,
   };
 
