@@ -10,7 +10,9 @@ export function middleware(request: NextRequest) {
   //   return NextResponse.rewrite(new URL('/password', request.url));
   // }
 
-  console.log(`${request.method || ''} ${request.url}`);
+  if (['/portfolio', '/password'].includes(request.nextUrl.pathname)) {
+    return NextResponse.redirect(new URL('/', request.url));
+  }
 
   return NextResponse.next();
 }
