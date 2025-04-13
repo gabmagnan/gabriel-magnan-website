@@ -2,16 +2,10 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import {
-  BriefcaseIcon,
-  Globe2Icon,
-  LinkedinIcon,
-  Users2Icon,
-} from 'lucide-react';
+import { BriefcaseIcon, LinkedinIcon, Users2Icon } from 'lucide-react';
 import profile_picture from '$/assets/profile_picture.webp';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
-import { BASE_URL } from '@/env-constants';
 import { type TSkill } from '@/types/skill';
 import {
   fadeInUpAnimation,
@@ -140,13 +134,13 @@ const profiles = [
     url: 'https://www.linkedin.com/in/gabriel-magnan/',
     color: 'text-blue-500',
   },
-  {
+  /*{
     name: 'Portfolio',
     icon: Globe2Icon,
     description: 'Visit my personal website',
     url: `${BASE_URL}/portfolio`,
     color: 'text-green-500',
-  },
+  },*/
 ];
 
 export default function Home() {
