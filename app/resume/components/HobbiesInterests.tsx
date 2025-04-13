@@ -3,12 +3,13 @@ import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 
 const hobbies = [
-  'Photography',
-  'Rock Climbing',
-  'Open Source Contributing',
-  'Piano',
+  'AI-Driven Innovation',
+  'Investments',
+  'Blockchain & WEB3',
+  'Asset Management ',
+  'Entrepreneurship',
+  'Guitar',
   'Travel',
-  'Reading',
 ];
 
 const HobbiesInterests = () => {
@@ -21,7 +22,7 @@ const HobbiesInterests = () => {
       <Card className="bg-card/50 p-6 backdrop-blur-sm">
         <div className="flex flex-wrap gap-2">
           {hobbies.map((hobby) => (
-            <Badge key={hobby} className="bg-background/50" variant="secondary">
+            <Badge key={hobby} variant="secondary">
               {hobby}
             </Badge>
           ))}

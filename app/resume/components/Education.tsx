@@ -1,18 +1,20 @@
 import { GraduationCapIcon } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import type { TEducation } from '@/types/education';
 
-const education = [
+const education: TEducation[] = [
   {
-    degree: 'Master of Computer Science',
-    school: 'Tech University',
-    period: '2016 - 2018',
-    description: 'Specialized in Software Engineering and Distributed Systems',
+    degree: 'Master engineering in Electronics and Industrial Computer Science',
+    school: 'Polytech Sorbonne Université',
+    period: '2017 - 2020',
+    location: 'Paris, France',
   },
   {
-    degree: 'Bachelor of Computer Science',
-    school: 'State University',
-    period: '2012 - 2016',
-    description: "Dean's List, Computer Science Club President",
+    degree:
+      'Two-year university diploma in Electronics and Electronical Engineering',
+    school: 'Université Paris-Saclay',
+    location: 'Paris, France',
+    period: '2015 - 2017',
   },
 ];
 
@@ -27,13 +29,14 @@ const Education = () => {
         <div className="space-y-6">
           {education.map((edu) => (
             <Card key={edu.degree} className="bg-card/50 p-6 backdrop-blur-sm">
-              <div className="space-y-2">
+              <div>
                 <h3 className="text-lg font-semibold">{edu.degree}</h3>
-                <p className="text-muted-foreground">
-                  {edu.school} • {edu.period}
+                <p className="mt-3 py-0 text-sm text-muted-foreground">
+                  {edu.period}
                 </p>
-                <p className="text-sm text-muted-foreground">
-                  {edu.description}
+                <p className="mt-1 text-muted-foreground">{edu.school}</p>
+                <p className="font-light text-muted-foreground">
+                  {edu.location}
                 </p>
               </div>
             </Card>

@@ -1,26 +1,22 @@
 import { LanguagesIcon } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import { type TLanguage } from '@/types/language';
 
-const languages = [
-  {
-    name: 'English',
-    level: 'Native',
-    proficiency: '100%',
-  },
+const languages: TLanguage[] = [
   {
     name: 'French',
+    level: 'Native',
+    proficiency: 100,
+  },
+  {
+    name: 'English',
     level: 'Fluent',
-    proficiency: '90%',
+    proficiency: 90,
   },
   {
     name: 'Spanish',
     level: 'Intermediate',
-    proficiency: '70%',
-  },
-  {
-    name: 'German',
-    level: 'Basic',
-    proficiency: '40%',
+    proficiency: 50,
   },
 ];
 
@@ -42,7 +38,7 @@ const Languages = () => {
               <div className="h-2 overflow-hidden rounded-full bg-secondary">
                 <div
                   className="h-full rounded-full bg-primary transition-all duration-500"
-                  style={{ width: lang.proficiency }}
+                  style={{ width: `${lang.proficiency}%` }}
                 />
               </div>
             </div>
