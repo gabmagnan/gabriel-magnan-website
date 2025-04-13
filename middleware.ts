@@ -1,13 +1,14 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
-import { ACCESS_PASSWORD, COOKIES_ACCESS_PASSWORD } from '@/env-constants';
+
+//import { ACCESS_PASSWORD, COOKIES_ACCESS_PASSWORD } from '@/env-constants';
 
 export function middleware(request: NextRequest) {
-  const accessPassword = request.cookies.get(COOKIES_ACCESS_PASSWORD)?.value;
-
-  if (![ACCESS_PASSWORD].includes(accessPassword)) {
-    return NextResponse.rewrite(new URL('/password', request.url));
-  }
+  // const accessPassword = request.cookies.get(COOKIES_ACCESS_PASSWORD)?.value;
+  //
+  // if (![ACCESS_PASSWORD].includes(accessPassword)) {
+  //   return NextResponse.rewrite(new URL('/password', request.url));
+  // }
 
   return NextResponse.next();
 }
