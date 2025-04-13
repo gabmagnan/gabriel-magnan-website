@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { LinkedinIcon, MailIcon, MoonIcon, SunIcon } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import CustomLink from '@/components/CustmLink';
 import { Button } from '@/components/ui/button';
 import { type TSocialLink } from '@/types/socialLink';
 import { fadeInUpAnimation } from '@/utils/animations';
@@ -15,12 +16,12 @@ export function Footer() {
   const socialLinks: TSocialLink[] = [
     {
       name: 'LinkedIn',
-      href: 'https://linkedin.com/in/gabrielmagnan', // External URL, string type
+      href: 'https://www.linkedin.com/in/gabriel-magnan/',
       icon: LinkedinIcon,
     },
     {
       name: 'Email',
-      href: { pathname: '/contact' }, // Internal URLObject type
+      href: '/contact',
       icon: MailIcon,
     },
   ];
@@ -91,7 +92,7 @@ export function Footer() {
                 {socialLinks.map((link) => {
                   const Icon = link.icon;
                   return (
-                    <Link
+                    <CustomLink
                       key={link.name}
                       className="text-muted-foreground transition-colors hover:text-foreground"
                       href={link.href}
@@ -100,7 +101,7 @@ export function Footer() {
                     >
                       <Icon className="size-5" />
                       <span className="sr-only">{link.name}</span>
-                    </Link>
+                    </CustomLink>
                   );
                 })}
               </div>
