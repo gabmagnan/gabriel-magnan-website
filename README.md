@@ -2,8 +2,6 @@
 
 A modern, responsive portfolio website built with Next.js 15, TypeScript, Tailwind CSS, and Framer Motion.
 
-![Portfolio Preview](/public/assets/profile_picture.webp)
-
 ## Features
 
 - 🌓 Dark mode by default
@@ -38,7 +36,7 @@ A modern, responsive portfolio website built with Next.js 15, TypeScript, Tailwi
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/portfolio.git
+git clone https://github.com/gabmagnan/gabriel-magnan-website.git
 ```
 
 2. Install dependencies:
@@ -86,13 +84,6 @@ The static output will be generated in the `out` directory.
 └── styles/           # Global styles
 ```
 
-## Customization
-
-1. **Personal Information**: Update your personal information in `src/strings.json`
-2. **Theme**: Modify the theme in `app/globals.css` and `tailwind.config.ts`
-3. **Projects**: Add your projects in the `portfolio/page.tsx` file
-4. **Resume**: Update your experience and education in `resume/page.tsx`
-
 ## Performance
 
 - Optimized images with Next.js Image component
@@ -107,17 +98,9 @@ The static output will be generated in the `out` directory.
 - Sitemap generation
 - Robots.txt configuration
 
-## Contributing
-
-Feel free to submit issues and enhancement requests!
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-Gabriel Magnan - [gabriel@magnan.com](mailto:gabriel@magnan.com)
 
 ## Acknowledgments
 
