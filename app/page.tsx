@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import {
   BriefcaseIcon,
-  GithubIcon,
   Globe2Icon,
   LinkedinIcon,
   Users2Icon,
@@ -140,13 +139,6 @@ const profiles = [
     description: 'Connect with me professionally',
     url: 'https://www.linkedin.com/in/gabriel-magnan/',
     color: 'text-blue-500',
-  },
-  {
-    name: 'GitHub',
-    icon: GithubIcon,
-    description: 'Check out my open source work',
-    url: 'https://github.com/gabrielmagnan',
-    color: 'text-gray-700 dark:text-gray-300',
   },
   {
     name: 'Portfolio',

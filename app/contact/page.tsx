@@ -1,8 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
-import { MailIcon, SendIcon } from 'lucide-react';
+import { SendIcon } from 'lucide-react';
+import { useForm } from 'react-hook-form';
+import * as z from 'zod';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -13,24 +15,56 @@ import {
   staggerContainerAnimation,
 } from '@/utils/animations';
 
+const formSchema = z.object({
+  name: z.string().min(2, 'Name must be at least 2 characters'),
+  from: z.string().email('Invalid email address'),
+  message: z.string().min(10, 'Message must be at least 10 characters'),
+});
+
+type FormData = z.infer<typeof formSchema>;
+
 export default function Contact() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+  });
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+  const onSubmit = async (data: FormData) => {
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
 
-    toast({
-      title: 'Message sent!',
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
+      const result = await response.json();
 
-    setIsSubmitting(false);
-    (e.target as HTMLFormElement).reset();
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send message');
+      }
+
+      toast({
+        title: 'Message sent!',
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+
+      reset();
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description:
+          error instanceof Error ? error.message : 'Failed to send message',
+        variant: 'error',
+      });
+    }
   };
 
   return (
@@ -53,7 +87,7 @@ export default function Contact() {
 
         <motion.div variants={fadeInUpAnimation()}>
           <Card className="bg-card/50 p-6 backdrop-blur-sm">
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
               <div className="space-y-4">
                 <div>
                   <label
@@ -63,12 +97,18 @@ export default function Contact() {
                     Name
                   </label>
                   <Input
-                    required
                     id="name"
+                    {...register('name')}
+                    required
                     minLength={2}
                     name="name"
                     placeholder="Your name"
                   />
+                  {errors.name && (
+                    <p className="mt-2 text-sm text-destructive">
+                      {errors.name.message}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -79,12 +119,16 @@ export default function Contact() {
                     Email
                   </label>
                   <Input
-                    required
                     id="email"
-                    name="email"
-                    placeholder="your@email.com"
                     type="email"
+                    {...register('from')}
+                    placeholder="your@email.com"
                   />
+                  {errors.from && (
+                    <p className="mt-2 text-sm text-destructive">
+                      {errors.from.message}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -95,13 +139,19 @@ export default function Contact() {
                     Message
                   </label>
                   <Textarea
-                    required
                     id="message"
+                    {...register('message')}
+                    required
                     minLength={10}
                     name="message"
                     placeholder="Your message..."
                     rows={5}
                   />
+                  {errors.message && (
+                    <p className="mt-2 text-sm text-destructive">
+                      {errors.message.message}
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -117,22 +167,6 @@ export default function Contact() {
               </Button>
             </form>
           </Card>
-        </motion.div>
-
-        <motion.div
-          className="space-y-4 text-center"
-          variants={fadeInUpAnimation()}
-        >
-          <div className="inline-flex items-center justify-center gap-2 text-muted-foreground">
-            <MailIcon className="size-5" />
-            <span>Or email me directly at:</span>
-          </div>
-          <a
-            className="block text-lg font-medium transition-colors hover:text-primary"
-            href="mailto:gabriel@magnan.com"
-          >
-            gabriel@magnan.com
-          </a>
         </motion.div>
       </motion.div>
     </div>

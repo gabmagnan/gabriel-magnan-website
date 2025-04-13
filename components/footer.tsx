@@ -2,41 +2,26 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import {
-  GithubIcon,
-  LinkedinIcon,
-  MailIcon,
-  MoonIcon,
-  SunIcon,
-  TwitterIcon,
-} from 'lucide-react';
+import { LinkedinIcon, MailIcon, MoonIcon, SunIcon } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import CustomLink from '@/components/CustmLink';
 import { Button } from '@/components/ui/button';
+import { type TSocialLink } from '@/types/socialLink';
 import { fadeInUpAnimation } from '@/utils/animations';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
   const { setTheme, theme } = useTheme();
 
-  const socialLinks = [
-    {
-      name: 'GitHub',
-      href: 'https://github.com/gabrielmagnan',
-      icon: GithubIcon,
-    },
+  const socialLinks: TSocialLink[] = [
     {
       name: 'LinkedIn',
-      href: 'https://linkedin.com/in/gabrielmagnan',
+      href: 'https://www.linkedin.com/in/gabriel-magnan/',
       icon: LinkedinIcon,
     },
     {
-      name: 'Twitter',
-      href: 'https://twitter.com/gabrielmagnan',
-      icon: TwitterIcon,
-    },
-    {
       name: 'Email',
-      href: 'mailto:gabriel@magnan.com',
+      href: '/contact',
       icon: MailIcon,
     },
   ];
@@ -107,7 +92,7 @@ export function Footer() {
                 {socialLinks.map((link) => {
                   const Icon = link.icon;
                   return (
-                    <a
+                    <CustomLink
                       key={link.name}
                       className="text-muted-foreground transition-colors hover:text-foreground"
                       href={link.href}
@@ -116,7 +101,7 @@ export function Footer() {
                     >
                       <Icon className="size-5" />
                       <span className="sr-only">{link.name}</span>
-                    </a>
+                    </CustomLink>
                   );
                 })}
               </div>
