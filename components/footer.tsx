@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { LinkedinIcon, MailIcon, MoonIcon, SunIcon } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import CustomLink from '@/components/CustmLink';
+import CustomLink from '@/components/CustomLink';
 import { Button } from '@/components/ui/button';
 import { type TSocialLink } from '@/types/socialLink';
 import { fadeInUpAnimation } from '@/utils/animations';

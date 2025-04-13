@@ -30,6 +30,7 @@ const Schema: NextPage = () => {
       'TypeScript',
       'AWS',
       'Docker',
+      'GraphQL',
     ],
   };
 
