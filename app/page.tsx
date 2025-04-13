@@ -19,11 +19,16 @@ import {
   imageAnimation,
   staggerContainerAnimation,
 } from '@/utils/animations';
+import { formatDescription } from '@/utils/utils';
 
 const skills: TSkill[] = [
   {
     name: 'React.js',
-    iconName: 'react',
+    iconName: 'reactjs',
+  },
+  {
+    name: 'Next.js',
+    iconName: 'nextjs',
   },
   {
     name: 'TypeScript',
@@ -34,16 +39,32 @@ const skills: TSkill[] = [
     iconName: 'javascript',
   },
   {
-    name: 'Next.js',
-    iconName: 'nextjs',
+    name: 'Python',
+    iconName: 'python',
+  },
+  {
+    name: 'MongoDB',
+    iconName: 'mongodb',
+  },
+  {
+    name: 'Flutter',
+    iconName: 'flutter',
+  },
+  {
+    name: 'Express.js',
+    iconName: 'expressjs',
   },
   {
     name: 'Node.js',
     iconName: 'nodejs',
   },
   {
-    name: 'Python',
-    iconName: 'python',
+    name: 'Firebase',
+    iconName: 'firebase',
+  },
+  {
+    name: 'MySQL',
+    iconName: 'mysql',
   },
   {
     name: 'GCP',
@@ -58,18 +79,45 @@ const skills: TSkill[] = [
     iconName: 'vercel',
   },
   {
+    name: 'React Native',
+    iconName: 'react_native',
+  },
+  {
     name: 'Docker',
     iconName: 'docker',
   },
   {
-    name: 'MongoDB',
-    iconName: 'mongodb',
+    name: 'GitHub',
+    iconName: 'github',
   },
   {
-    name: 'MySQL',
-    iconName: 'mysql',
+    name: 'GitLab',
+    iconName: 'gitlab',
+  },
+  {
+    name: 'GraphQL',
+    iconName: 'graphql',
+  },
+  {
+    name: 'PHP',
+    iconName: 'php',
+  },
+  {
+    name: 'Tag Manager',
+    iconName: 'tag_manager',
   },
 ];
+
+const backgroundText =
+  'I am a full-stack engineer with <strong class="font-bold text-black dark:text-white">5 years of experience</strong> in developing scalable web applications. ' +
+  ' My employment history scales across multiple settings; from working for a large enterprise, to creating my own' +
+  ' company, and to most recently working in a fast-paced environment at a startup.' +
+  ' My focus is centered around creating <strong class="font-bold text-black dark:text-white">modern solutions</strong>' +
+  ' with <strong class="font-bold text-black dark:text-white">robust backend</strong> and <strong class="font-bold' +
+  ' text-black dark:text-white">seamless user experience.</strong> ' +
+  ' Most people would describe me as <strong class="font-bold text-black dark:text-white">professional, curious,' +
+  ' logical, and ambitious</strong>. I collaborate efficiently with' +
+  ' diverse teams, am recognised for my <strong class="font-bold text-black dark:text-white">strong coding skills.</strong>';
 
 const profiles = [
   {
@@ -176,15 +224,12 @@ export default function Home() {
         >
           About Me
         </motion.h2>
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="xs:px-2 grid justify-center gap-8 md:grid-cols-[60%_40%] md:px-4">
           <motion.div variants={fadeInUpAnimation()}>
             <Card className="h-full space-y-4 bg-card/50 p-6 backdrop-blur-sm">
               <h3 className="text-xl font-semibold">Background</h3>
               <p className="leading-relaxed text-muted-foreground">
-                {`With over 5 years of experience in software development, I've
-                worked on various projects ranging from small business websites
-                to large-scale enterprise applications. I'm passionate about
-                creating efficient, scalable, and user-friendly solutions.`}
+                {formatDescription(backgroundText)}
               </p>
             </Card>
           </motion.div>
