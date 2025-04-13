@@ -23,10 +23,10 @@ const routes: Route[] = [
     href: '/',
     label: 'About',
   },
-  {
-    href: '/portfolio',
-    label: 'Portfolio',
-  },
+  // {
+  //   href: '/portfolio',
+  //   label: 'Portfolio',
+  // },
   {
     href: '/resume',
     label: 'Resume',

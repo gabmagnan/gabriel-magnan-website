@@ -59,14 +59,14 @@ export function Footer() {
                     About
                   </Link>
                 </li>
-                <li>
+                {/*<li>
                   <Link
                     className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                     href="/portfolio"
                   >
                     Portfolio
                   </Link>
-                </li>
+                </li>*/}
                 <li>
                   <Link
                     className="text-sm text-muted-foreground transition-colors hover:text-foreground"
