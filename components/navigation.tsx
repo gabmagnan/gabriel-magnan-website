@@ -18,7 +18,7 @@ import { type TRoute } from '@/types/routes';
 const routes: TRoute[] = [
   {
     href: '/',
-    label: 'about',
+    label: strings.global.sections.about,
   },
   // {
   //   href: '/portfolio',
@@ -26,11 +26,11 @@ const routes: TRoute[] = [
   // },
   {
     href: '/resume',
-    label: 'Resume',
+    label: strings.global.sections.resume,
   },
   {
     href: '/contact',
-    label: 'Contact',
+    label: strings.global.sections.contact,
   },
 ];
 

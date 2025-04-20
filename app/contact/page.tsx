@@ -10,6 +10,7 @@ import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import { strings } from '@/src/strings';
 import {
   fadeInUpAnimation,
   staggerContainerAnimation,
@@ -79,9 +80,11 @@ export default function Contact() {
           className="space-y-4 text-center"
           variants={fadeInUpAnimation()}
         >
-          <h1 className="text-4xl font-bold tracking-tight">Contact Me</h1>
+          <h1 className="text-4xl font-bold tracking-tight">
+            {strings.contact.title}
+          </h1>
           <p className="text-xl text-muted-foreground">
-            Have a question or want to work together?
+            {strings.contact.description}
           </p>
         </motion.div>
 
@@ -94,7 +97,7 @@ export default function Contact() {
                     className="mb-2 block text-sm font-medium"
                     htmlFor="name"
                   >
-                    Name
+                    {strings.contact.formName}
                   </label>
                   <Input
                     id="name"
@@ -102,7 +105,7 @@ export default function Contact() {
                     required
                     minLength={2}
                     name="name"
-                    placeholder="Your name"
+                    placeholder={strings.contact.formNamePlaceholder}
                   />
                   {errors.name && (
                     <p className="mt-2 text-sm text-destructive">
@@ -116,13 +119,13 @@ export default function Contact() {
                     className="mb-2 block text-sm font-medium"
                     htmlFor="email"
                   >
-                    Email
+                    {strings.contact.formEmail}
                   </label>
                   <Input
                     id="email"
                     type="email"
                     {...register('from')}
-                    placeholder="your@email.com"
+                    placeholder={strings.contact.formEmailPlaceholder}
                   />
                   {errors.from && (
                     <p className="mt-2 text-sm text-destructive">
@@ -136,7 +139,7 @@ export default function Contact() {
                     className="mb-2 block text-sm font-medium"
                     htmlFor="message"
                   >
-                    Message
+                    {strings.contact.formMessage}
                   </label>
                   <Textarea
                     id="message"
@@ -144,7 +147,7 @@ export default function Contact() {
                     required
                     minLength={10}
                     name="message"
-                    placeholder="Your message..."
+                    placeholder={strings.contact.formMessagePlaceholder}
                     rows={5}
                   />
                   {errors.message && (
@@ -161,7 +164,7 @@ export default function Contact() {
                 ) : (
                   <>
                     <SendIcon className="mr-2 size-4" />
-                    Send Message
+                    {strings.contact.submitButton}
                   </>
                 )}
               </Button>

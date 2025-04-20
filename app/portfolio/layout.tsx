@@ -1,15 +1,13 @@
-import type { Metadata } from 'next';
+import { strings } from '@/src/strings';
+import { mergeMetadata } from '@/utils/mergeMetadata';
+import type { Metadata, ResolvingMetadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Portfolio',
-  description:
-    'Explore my latest projects and technical achievements. View a showcase of web applications, software solutions, and development work.',
-  openGraph: {
-    title: 'Portfolio | Gabriel Magnan',
-    description:
-      'Explore my latest projects and technical achievements. View a showcase of web applications, software solutions, and development work.',
-  },
-};
+export async function generateMetadata(
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const parentMetadata = (await parent) as Metadata;
+  return mergeMetadata(parentMetadata, strings.portfolio.metadata);
+}
 
 export default function PortfolioLayout({
   children,

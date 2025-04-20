@@ -1,15 +1,13 @@
-import type { Metadata } from 'next';
+import { strings } from '@/src/strings';
+import { mergeMetadata } from '@/utils/mergeMetadata';
+import type { Metadata, ResolvingMetadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Contact',
-  description:
-    'Get in touch with me for collaboration opportunities, project inquiries, or general questions about software development.',
-  openGraph: {
-    title: 'Contact | Gabriel Magnan',
-    description:
-      'Get in touch with me for collaboration opportunities, project inquiries, or general questions about software development.',
-  },
-};
+export async function generateMetadata(
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const parentMetadata = (await parent) as Metadata;
+  return mergeMetadata(parentMetadata, strings.contact.metadata);
+}
 
 export default function ContactLayout({
   children,

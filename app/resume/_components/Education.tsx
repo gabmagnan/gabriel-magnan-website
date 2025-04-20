@@ -1,22 +1,7 @@
 import { GraduationCapIcon } from 'lucide-react';
+import { education } from '@/app/resume/_data/education';
 import { Card } from '@/components/ui/card';
-import type { TEducation } from '@/types/education';
-
-const education: TEducation[] = [
-  {
-    degree: 'Master engineering in Electronics and Industrial Computer Science',
-    school: 'Polytech Sorbonne Université',
-    period: '2017 - 2020',
-    location: 'Paris, France',
-  },
-  {
-    degree:
-      'Two-year university diploma in Electronics and Electronical Engineering',
-    school: 'Université Paris-Saclay',
-    location: 'Paris, France',
-    period: '2015 - 2017',
-  },
-];
+import { strings } from '@/src/strings';
 
 const Education = () => {
   return (
@@ -24,7 +9,7 @@ const Education = () => {
       <div className="space-y-6">
         <h2 className="flex items-center gap-2 text-2xl font-semibold">
           <GraduationCapIcon className="size-6" />
-          Education
+          {strings.resume.educationSection}
         </h2>
         <div className="space-y-6">
           {education.map((edu) => (

@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ExternalLinkIcon, GithubIcon, StarIcon } from 'lucide-react';
-import { projects } from '@/app/portfolio/data/projects';
+import { projects } from '@/app/portfolio/_data/projects';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {

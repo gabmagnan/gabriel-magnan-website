@@ -1,31 +1,14 @@
 import { LanguagesIcon } from 'lucide-react';
+import { languages } from '@/app/resume/_data/languages';
 import { Card } from '@/components/ui/card';
-import { type TLanguage } from '@/types/language';
-
-const languages: TLanguage[] = [
-  {
-    name: 'French',
-    level: 'Native',
-    proficiency: 100,
-  },
-  {
-    name: 'English',
-    level: 'Fluent',
-    proficiency: 90,
-  },
-  {
-    name: 'Spanish',
-    level: 'Intermediate',
-    proficiency: 50,
-  },
-];
+import { strings } from '@/src/strings';
 
 const Languages = () => {
   return (
     <div className="space-y-6">
       <h2 className="flex items-center gap-2 text-2xl font-semibold">
         <LanguagesIcon className="size-6" />
-        Languages
+        {strings.resume.languagesSection}
       </h2>
       <Card className="bg-card/50 p-6 backdrop-blur-sm">
         <div className="space-y-4">

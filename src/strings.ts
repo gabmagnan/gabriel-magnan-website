@@ -1,19 +1,44 @@
+import { BASE_URL } from '@/env-constants';
+
 export const strings = {
   // General
   global: {
     metadata: {
-      title: 'Gabriel Magnan - Software Engineer',
+      metadataBase: new URL(BASE_URL),
+      title: 'Gabriel Magnan | Software Engineer',
       description:
-        'Gabriel Magnan is a software engineer specializing in building exceptional digital experiences.',
+        'Professional portfolio of Gabriel Magnan, a passionate software engineer specializing in web development and creating exceptional digital experiences.',
       keywords: [
-        'Gabriel Magnan',
         'Software Engineer',
-        'Full Stack Developer',
         'Web Developer',
-        'Portfolio',
+        'Full Stack Developer',
+        'React',
+        'Node.js',
+        'TypeScript',
       ],
+      authors: [{ name: 'Gabriel Magnan' }],
+      creator: 'Gabriel Magnan',
+      openGraph: {
+        type: 'website',
+        locale: 'en_US',
+        url: new URL(BASE_URL),
+        title: 'Gabriel Magnan | Software Engineer',
+        description:
+          'Professional portfolio of Gabriel Magnan, a passionate software engineer specializing in web development.',
+        siteName: 'Gabriel Magnan Portfolio',
+        images: [
+          {
+            url: '/logo.png',
+            width: 310,
+            height: 310,
+            alt: 'Gabriel Magnan - Software Engineer',
+          },
+        ],
+      },
+      alternates: {
+        canonical: new URL(BASE_URL),
+      },
     },
-    title: 'Gabriel Magnan - Software Engineer',
     nickname: 'GM',
     fullname: 'Gabriel Magnan',
     navbar: {
@@ -34,6 +59,28 @@ export const strings = {
     },
   },
 
+  // Resume
+  resume: {
+    metadata: {
+      title: 'Gabriel Magnan | Resume',
+      description:
+        'View my professional experience, skills, and qualifications. Learn about my journey as a software engineer' +
+        ' and technical expertise.',
+      openGraph: {
+        title: 'Resume | Gabriel Magnan',
+        description:
+          'View my professional experience, skills, and qualifications. Learn about my journey as a software engineer and technical expertise.',
+      },
+    },
+    title: 'Resume',
+    description: 'My professional journey and qualifications',
+    downloadButton: 'Download full resume',
+    experienceSection: 'Experience',
+    educationSection: 'Education',
+    languagesSection: 'Languages',
+    hobbiesSection: 'Hobbies & Interests',
+  },
+
   // About
   about: {
     title: 'About Me',
@@ -41,56 +88,39 @@ export const strings = {
       "I'm a passionate software developer with a love for creating innovative solutions. I enjoy tackling complex challenges and turning them into simple, beautiful, and intuitive designs.",
   },
 
+  portfolio: {
+    metadata: {
+      title: 'Portfolio',
+      description:
+        'Explore my latest projects and technical achievements. View a showcase of web applications, software solutions, and development work.',
+      openGraph: {
+        title: 'Portfolio | Gabriel Magnan',
+        description:
+          'Explore my latest projects and technical achievements. View a showcase of web applications, software solutions, and development work.',
+      },
+    },
+  },
+
   // Contact
   contact: {
-    title: 'Get in Touch',
-    description:
-      "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.",
-    namePlaceholder: 'Your Name',
-    emailPlaceholder: 'Your Email',
-    messagePlaceholder: 'Your Message',
+    metadata: {
+      title: 'Contact',
+      description:
+        'Get in touch with me for collaboration opportunities, project inquiries, or general questions about software development.',
+      openGraph: {
+        title: 'Contact | Gabriel Magnan',
+        description:
+          'Get in touch with me for collaboration opportunities, project inquiries, or general questions about software development.',
+      },
+    },
+    title: 'Contact Me',
+    description: 'Have a question or want to work together?',
+    formName: 'Contact Form',
+    formNamePlaceholder: 'Your name',
+    formEmail: 'Email',
+    formEmailPlaceholder: 'Your email',
+    formMessage: 'Message',
+    formMessagePlaceholder: 'Your message...',
     submitButton: 'Send Message',
-  },
-
-  // Projects
-  projects: {
-    title: 'My Projects',
-    description:
-      "Here are some of the projects I've worked on. Each project reflects my skills and dedication to delivering high-quality work.",
-  },
-
-  // Skills
-  skills: {
-    title: 'My Skills',
-    description:
-      "I have a diverse skill set that allows me to tackle various challenges in software development. Here are some of the technologies I'm proficient in.",
-  },
-
-  // Languages
-  languages: {
-    title: 'Languages I Speak',
-    description:
-      'I believe that communication is key in any project. Here are the languages I can communicate in.',
-  },
-
-  // Education
-  education: {
-    title: 'My Education',
-    description:
-      'I have a solid educational background that has equipped me with the knowledge and skills necessary for success in the tech industry.',
-  },
-
-  // Experience
-  experience: {
-    title: 'My Experience',
-    description:
-      'I have worked on various projects that have helped me grow as a developer. Here are some of my experiences.',
-  },
-
-  // Certifications
-  certifications: {
-    title: 'My Certifications',
-    description:
-      "I believe in continuous learning and self-improvement. Here are some certifications I've earned.",
   },
 };

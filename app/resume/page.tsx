@@ -8,6 +8,7 @@ import Experience from '@/app/resume/_components/Experience';
 import HobbiesInterests from '@/app/resume/_components/HobbiesInterests';
 import Languages from '@/app/resume/_components/Languages';
 import { Button } from '@/components/ui/button';
+import { strings } from '@/src/strings';
 import {
   fadeInUpAnimation,
   staggerContainerAnimation,
@@ -35,13 +36,13 @@ export default function Resume() {
             className="text-4xl font-bold tracking-tight"
             variants={fadeInUpAnimation()}
           >
-            Resume
+            {strings.resume.title}
           </motion.h1>
           <motion.p
             className="text-xl text-muted-foreground"
             variants={fadeInUpAnimation()}
           >
-            My professional journey and qualifications
+            {strings.resume.description}
           </motion.p>
           <motion.div variants={fadeInUpAnimation()}>
             <Button asChild>
@@ -51,7 +52,7 @@ export default function Resume() {
                 target="_blank"
               >
                 <DownloadIcon className="mr-2 size-4" />
-                Download Full Resume
+                {strings.resume.downloadButton}
               </a>
             </Button>
           </motion.div>

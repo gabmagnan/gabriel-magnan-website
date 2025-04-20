@@ -1,15 +1,13 @@
-import type { Metadata } from 'next';
+import { type Metadata, type ResolvingMetadata } from 'next';
+import { strings } from '@/src/strings';
+import { mergeMetadata } from '@/utils/mergeMetadata';
 
-export const metadata: Metadata = {
-  title: 'Resume',
-  description:
-    'View my professional experience, skills, and qualifications. Learn about my journey as a software engineer and technical expertise.',
-  openGraph: {
-    title: 'Resume | Gabriel Magnan',
-    description:
-      'View my professional experience, skills, and qualifications. Learn about my journey as a software engineer and technical expertise.',
-  },
-};
+export async function generateMetadata(
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const parentMetadata = (await parent) as Metadata;
+  return mergeMetadata(parentMetadata, strings.resume.metadata);
+}
 
 export default function ResumeLayout({
   children,

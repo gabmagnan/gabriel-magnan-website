@@ -7,7 +7,7 @@ import { Footer } from '@/components/footer';
 import { Navigation } from '@/components/navigation';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
-import { BASE_URL } from '@/env-constants';
+import { strings } from '@/src/strings';
 import type { Metadata } from 'next';
 
 const jetbrainsMono = JetBrains_Mono({
@@ -18,53 +18,7 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-jetbrains',
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(BASE_URL),
-  title: {
-    default: 'Gabriel Magnan | Software Engineer',
-    template: '%s | Gabriel Magnan',
-  },
-  description:
-    'Professional portfolio of Gabriel Magnan, a passionate software engineer specializing in web development and creating exceptional digital experiences.',
-  keywords: [
-    'Software Engineer',
-    'Web Developer',
-    'Full Stack Developer',
-    'React',
-    'Node.js',
-    'TypeScript',
-  ],
-  authors: [{ name: 'Gabriel Magnan' }],
-  creator: 'Gabriel Magnan',
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: BASE_URL,
-    title: 'Gabriel Magnan | Software Engineer',
-    description:
-      'Professional portfolio of Gabriel Magnan, a passionate software engineer specializing in web development.',
-    siteName: 'Gabriel Magnan Portfolio',
-    images: [
-      {
-        url: '/images/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Gabriel Magnan - Software Engineer',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Gabriel Magnan | Software Engineer',
-    description:
-      'Professional portfolio of Gabriel Magnan, a passionate software engineer specializing in web development.',
-    creator: '@gabrielmagnan',
-    images: ['/images/og-image.jpg'],
-  },
-  alternates: {
-    canonical: BASE_URL,
-  },
-};
+export const metadata: Metadata = strings.global.metadata;
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
