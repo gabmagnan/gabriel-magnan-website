@@ -1,12 +1,8 @@
 import { strings } from '@/src/strings';
-import { mergeMetadata } from '@/utils/mergeMetadata';
-import type { Metadata, ResolvingMetadata } from 'next';
+import type { Metadata } from 'next';
 
-export async function generateMetadata(
-  parent: ResolvingMetadata
-): Promise<Metadata> {
-  const parentMetadata = (await parent) as Metadata;
-  return mergeMetadata(parentMetadata, strings.portfolio.metadata);
+export async function generateMetadata(): Promise<Metadata> {
+  return strings.portfolio.metadata;
 }
 
 export default function PortfolioLayout({

@@ -18,7 +18,9 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-jetbrains',
 });
 
-export const metadata: Metadata = strings.global.metadata;
+export async function generateMetadata(): Promise<Metadata> {
+  return strings.global.metadata;
+}
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

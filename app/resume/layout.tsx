@@ -1,12 +1,8 @@
-import { type Metadata, type ResolvingMetadata } from 'next';
+import { type Metadata } from 'next';
 import { strings } from '@/src/strings';
-import { mergeMetadata } from '@/utils/mergeMetadata';
 
-export async function generateMetadata(
-  parent: ResolvingMetadata
-): Promise<Metadata> {
-  const parentMetadata = (await parent) as Metadata;
-  return mergeMetadata(parentMetadata, strings.resume.metadata);
+export async function generateMetadata(): Promise<Metadata> {
+  return strings.resume.metadata;
 }
 
 export default function ResumeLayout({
