@@ -12,16 +12,13 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
+import { strings } from '@/src/strings';
+import { type TRoute } from '@/types/routes';
 
-type Route = {
-  href: '/' | '/portfolio' | '/resume' | '/contact';
-  label: string;
-};
-
-const routes: Route[] = [
+const routes: TRoute[] = [
   {
     href: '/',
-    label: 'About',
+    label: 'about',
   },
   // {
   //   href: '/portfolio',
@@ -46,7 +43,7 @@ export function Navigation() {
       <div className="container mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
         <nav className="flex h-16 items-center justify-between">
           <Link className="text-xl font-bold" href="/">
-            GM
+            {strings.global.nickname}
           </Link>
 
           {/* Desktop Navigation */}
@@ -72,11 +69,12 @@ export function Navigation() {
             <SheetTrigger asChild className="md:hidden">
               <Button size="icon" variant="ghost">
                 <MenuIcon className="size-5" />
-                <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent className="w-[300px] sm:w-[400px]" side="right">
-              <SheetTitle className="text-left">Navigation Menu</SheetTitle>
+              <SheetTitle className="text-left">
+                {strings.global.navbar.title}
+              </SheetTitle>
               <nav className="mt-8 flex flex-col gap-4">
                 {routes.map((route) => (
                   <Link

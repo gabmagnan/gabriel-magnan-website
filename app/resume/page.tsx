@@ -3,10 +3,10 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { DownloadIcon } from 'lucide-react';
-import Education from '@/app/resume/components/Education';
-import Experience from '@/app/resume/components/Experience';
-import HobbiesInterests from '@/app/resume/components/HobbiesInterests';
-import Languages from '@/app/resume/components/Languages';
+import Education from '@/app/resume/_components/Education';
+import Experience from '@/app/resume/_components/Experience';
+import HobbiesInterests from '@/app/resume/_components/HobbiesInterests';
+import Languages from '@/app/resume/_components/Languages';
 import { Button } from '@/components/ui/button';
 import {
   fadeInUpAnimation,

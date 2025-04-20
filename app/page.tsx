@@ -143,7 +143,7 @@ const profiles = [
   },*/
 ];
 
-export default function Home() {
+export default function About() {
   return (
     <div className="w-full space-y-16 py-12">
       <motion.section
