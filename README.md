@@ -70,18 +70,23 @@ The static output will be generated in the `out` directory.
 ## Project Structure
 
 ```
-├── app/                # Next.js 15 app directory
-│   ├── contact/       # Contact page
-│   ├── portfolio/     # Portfolio page
-│   ├── resume/        # Resume page
-│   └── layout.tsx     # Root layout
-├── components/        # React components
-│   ├── ui/           # UI components
-│   ├── navigation.tsx # Navigation component
-│   └── footer.tsx    # Footer component
-├── lib/              # Utility functions
-├── public/           # Static assets
-└── styles/           # Global styles
+├── public/                 # Static assets (images, favicons, robots.txt, etc.)
+├── src/                    # Source code root
+│   ├── app/                # Next.js 15 app directory
+│   │   ├── contact/        # Contact page
+│   │   ├── portfolio/      # Portfolio page
+│   │   ├── resume/         # Resume page
+│   │   └── layout.tsx      # Root layout
+│   ├── components/         # React components
+│   │   └── ui/             # UI components
+│   │   ├── navigation.tsx  # Navigation component
+│   │   └── footer.tsx      # Footer component
+│   ├── hooks/              # Custom hooks
+│   ├── lib/                # Utility functions
+│   ├── styles/             # Global styles
+│   ├── translations/       # i18n translations
+│   ├── types/              # TypeScript types
+│   ├── utils/              # Utility functions
 ```
 
 ## Performance
