@@ -1,13 +1,15 @@
-// utils/mergeMetadata.ts
 import type { Metadata } from 'next';
 
 export function mergeMetadata(
-  parentData: Metadata,
+  parentMetadata: Metadata,
   metadataUpdate: Partial<Metadata>
 ): Metadata {
   return {
-    ...parentData,
+    ...parentMetadata,
     ...metadataUpdate,
-    // Repeat for other nested fields if needed
+    openGraph: {
+      ...parentMetadata.openGraph,
+      ...metadataUpdate?.openGraph,
+    },
   };
 }

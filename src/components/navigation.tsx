@@ -17,7 +17,7 @@ import { type TRoute } from '@/types/routes';
 
 const routes: TRoute[] = [
   {
-    href: '/',
+    href: '/about',
     label: strings.global.sections.about,
   },
   // {
@@ -42,7 +42,7 @@ export function Navigation() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
         <nav className="flex h-16 items-center justify-between">
-          <Link className="text-xl font-bold" href="/">
+          <Link className="text-xl font-bold" href="/about">
             {strings.global.nickname}
           </Link>
 

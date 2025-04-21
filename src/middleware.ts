@@ -14,6 +14,10 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/', request.url));
   }
 
+  if (request.nextUrl.pathname === '/') {
+    return NextResponse.redirect(new URL('/about', request.url));
+  }
+
   return NextResponse.next();
 }
 

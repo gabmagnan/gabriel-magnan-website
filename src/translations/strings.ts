@@ -50,6 +50,7 @@ export const strings = {
         'Software engineer specializing in building exceptional digital experiences.',
       secondSectionTitle: 'Quick Links',
       thirdSectionTitle: 'Connect',
+      copyright: '© {currentYear} Gabriel Magnan. All rights reserved.',
     },
     sections: {
       about: 'About',
@@ -62,7 +63,7 @@ export const strings = {
   // Resume
   resume: {
     metadata: {
-      title: 'Gabriel Magnan | Resume',
+      title: 'Resume | Gabriel Magnan',
       description:
         'View my professional experience, skills, and qualifications. Learn about my journey as a software engineer' +
         ' and technical expertise.',
@@ -90,7 +91,7 @@ export const strings = {
 
   portfolio: {
     metadata: {
-      title: 'Portfolio',
+      title: 'Portfolio | Gabriel Magnan',
       description:
         'Explore my latest projects and technical achievements. View a showcase of web applications, software solutions, and development work.',
       openGraph: {
@@ -104,7 +105,7 @@ export const strings = {
   // Contact
   contact: {
     metadata: {
-      title: 'Contact',
+      title: 'Contact | Gabriel Magnan',
       description:
         'Get in touch with me for collaboration opportunities, project inquiries, or general questions about software development.',
       openGraph: {

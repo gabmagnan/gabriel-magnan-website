@@ -1,8 +1,10 @@
 import { strings } from '@/translations/strings';
+import { masterMetadata } from '@/utils/masterMetadata';
+import { mergeMetadata } from '@/utils/mergeMetadata';
 import type { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {
-  return strings.contact.metadata;
+  return mergeMetadata(masterMetadata, strings.contact.metadata);
 }
 
 export default function ContactLayout({

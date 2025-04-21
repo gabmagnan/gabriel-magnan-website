@@ -7,7 +7,7 @@ import { Footer } from '@/components/footer';
 import { Navigation } from '@/components/navigation';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
-import { strings } from '@/translations/strings';
+import { masterMetadata } from '@/utils/masterMetadata';
 import type { Metadata } from 'next';
 
 const jetbrainsMono = JetBrains_Mono({
@@ -19,7 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export async function generateMetadata(): Promise<Metadata> {
-  return strings.global.metadata;
+  return masterMetadata;
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {

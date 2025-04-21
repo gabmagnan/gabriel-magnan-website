@@ -1,8 +1,10 @@
 import { strings } from '@/translations/strings';
+import { masterMetadata } from '@/utils/masterMetadata';
+import { mergeMetadata } from '@/utils/mergeMetadata';
 import type { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {
-  return strings.portfolio.metadata;
+  return mergeMetadata(masterMetadata, strings.portfolio.metadata);
 }
 
 export default function PortfolioLayout({

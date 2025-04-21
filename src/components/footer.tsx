@@ -6,11 +6,11 @@ import { LinkedinIcon, MailIcon, MoonIcon, SunIcon } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import CustomLink from '@/components/CustomLink';
 import { Button } from '@/components/ui/button';
+import { strings } from '@/translations/strings';
 import { type TSocialLink } from '@/types/socialLink';
 import { fadeInUpAnimation } from '@/utils/animations';
 
 export function Footer() {
-  const currentYear = new Date().getFullYear();
   const { setTheme, theme } = useTheme();
 
   const socialLinks: TSocialLink[] = [
@@ -43,8 +43,7 @@ export function Footer() {
             <div className="space-y-4">
               <h3 className="text-lg font-semibold">Gabriel Magnan</h3>
               <p className="max-w-xs text-sm text-muted-foreground">
-                Software engineer specializing in building exceptional digital
-                experiences.
+                {strings.global.footer.firstSectionDescription}
               </p>
             </div>
 
@@ -54,9 +53,9 @@ export function Footer() {
                 <li>
                   <Link
                     className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                    href="/"
+                    href="/about"
                   >
-                    About
+                    {strings.global.sections.about}
                   </Link>
                 </li>
                 {/*<li>
@@ -72,7 +71,7 @@ export function Footer() {
                     className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                     href="/resume"
                   >
-                    Resume
+                    {strings.global.sections.resume}
                   </Link>
                 </li>
                 <li>
@@ -80,14 +79,16 @@ export function Footer() {
                     className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                     href="/contact"
                   >
-                    Contact
+                    {strings.global.sections.contact}
                   </Link>
                 </li>
               </ul>
             </nav>
 
             <div className="space-y-4 md:text-right">
-              <h3 className="text-lg font-semibold">Connect</h3>
+              <h3 className="text-lg font-semibold">
+                {strings.global.footer.thirdSectionTitle}
+              </h3>
               <div className="flex gap-4 md:justify-end">
                 {socialLinks.map((link) => {
                   const Icon = link.icon;
@@ -118,7 +119,7 @@ export function Footer() {
               <MoonIcon className="absolute size-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
             </Button>
             <p className="text-sm text-muted-foreground">
-              © {currentYear} Gabriel Magnan. All rights reserved.
+              {strings.global.footer.copyright}
             </p>
           </div>
         </div>
