@@ -3,6 +3,13 @@ import { BASE_URL } from '@/env-constants';
 export const strings = {
   // General
   global: {
+    error: {
+      httpCode: '404',
+      backButton: 'Back to Home',
+      title: 'Oops! Something went wrong.',
+      description:
+        "The page you're looking for doesn't exist or has been moved.",
+    },
     metadata: {
       metadataBase: new URL(BASE_URL),
       title: 'Gabriel Magnan | Software Engineer',
@@ -50,13 +57,62 @@ export const strings = {
         'Software engineer specializing in building exceptional digital experiences.',
       secondSectionTitle: 'Quick Links',
       thirdSectionTitle: 'Connect',
-      copyright: '© {currentYear} Gabriel Magnan. All rights reserved.',
+      copyright: () =>
+        `© ${new Date().getFullYear()} Gabriel Magnan. All rights reserved.`,
     },
     sections: {
       about: 'About',
       portfolio: 'Portfolio',
       resume: 'Resume',
       contact: 'Contact',
+    },
+  },
+
+  // Password
+  password: {
+    title: 'Protected Area',
+    description: 'Please enter the password to continue',
+    form: {
+      password: {
+        label: 'Password',
+        placeholder: 'Enter password',
+      },
+    },
+    submitButton: 'Access',
+    submitLoading: 'Verifying...',
+  },
+
+  // About
+  about: {
+    title: "Hi, I'm Gabriel Magnan 👋",
+    description:
+      'A passionate Software Engineer specializing in building exceptional digital experiences.',
+    background:
+      'I am a full-stack engineer with <strong class="font-bold text-black dark:text-white">5 years of experience</strong> in developing scalable web applications. ' +
+      ' My employment history scales across multiple settings; from working for a large enterprise, to creating my own' +
+      ' company, and to most recently working in a fast-paced environment at a startup.' +
+      ' My focus is centered around creating <strong class="font-bold text-black dark:text-white">modern solutions</strong>' +
+      ' with <strong class="font-bold text-black dark:text-white">robust backend</strong> and <strong class="font-bold' +
+      ' text-black dark:text-white">seamless user experience.</strong> ' +
+      ' Most people would describe me as <strong class="font-bold text-black dark:text-white">professional, curious,' +
+      ' logical, and ambitious</strong>. I collaborate efficiently with' +
+      ' diverse teams, am recognised for my <strong class="font-bold text-black dark:text-white">strong coding' +
+      ' skills.</strong>',
+    firstSectionTitle: 'About Me',
+    secondSectionTitle: 'Where to find me',
+    profiles: {
+      malt: {
+        title: 'Malt',
+        description: 'Hire me for freelance projects',
+      },
+      collective: {
+        title: 'Collective',
+        description: 'View my developer collective profile',
+      },
+      linkedin: {
+        title: 'LinkedIn',
+        description: 'Connect with me professionally',
+      },
     },
   },
 
@@ -80,13 +136,6 @@ export const strings = {
     educationSection: 'Education',
     languagesSection: 'Languages',
     hobbiesSection: 'Hobbies & Interests',
-  },
-
-  // About
-  about: {
-    title: 'About Me',
-    description:
-      "I'm a passionate software developer with a love for creating innovative solutions. I enjoy tackling complex challenges and turning them into simple, beautiful, and intuitive designs.",
   },
 
   portfolio: {
@@ -116,12 +165,34 @@ export const strings = {
     },
     title: 'Contact Me',
     description: 'Have a question or want to work together?',
-    formName: 'Contact Form',
-    formNamePlaceholder: 'Your name',
-    formEmail: 'Email',
-    formEmailPlaceholder: 'Your email',
-    formMessage: 'Message',
-    formMessagePlaceholder: 'Your message...',
+    form: {
+      name: {
+        label: 'Name',
+        placeholder: 'Your name',
+        error: 'Name must be at least 2 characters',
+      },
+      email: {
+        label: 'Email',
+        placeholder: 'Your email',
+        error: 'Invalid email address',
+      },
+      message: {
+        label: 'Message',
+        placeholder: 'Your message...',
+        error: 'Message must be at least 10 characters',
+      },
+    },
     submitButton: 'Send Message',
+    submitLoading: 'Sending...',
+    submitToast: {
+      success: {
+        title: 'Message sent!',
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      },
+      error: {
+        title: 'Error',
+        description: 'Failed to send message',
+      },
+    },
   },
 };

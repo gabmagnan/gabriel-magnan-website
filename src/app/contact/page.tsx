@@ -17,9 +17,9 @@ import {
 } from '@/utils/animations';
 
 const formSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  from: z.string().email('Invalid email address'),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
+  name: z.string().min(2, strings.contact.form.name.error),
+  from: z.string().email(strings.contact.form.email.error),
+  message: z.string().min(10, strings.contact.form.message.error),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -49,20 +49,24 @@ export default function Contact() {
       const result = await response.json();
 
       if (!response.ok) {
-        throw new Error(result.error || 'Failed to send message');
+        throw new Error(
+          result.error || strings.contact.submitToast.error.description
+        );
       }
 
       toast({
-        title: 'Message sent!',
-        description: "Thank you for reaching out. I'll get back to you soon.",
+        title: strings.contact.submitToast.success.title,
+        description: strings.contact.submitToast.success.description,
       });
 
       reset();
     } catch (error) {
       toast({
-        title: 'Error',
+        title: strings.contact.submitToast.error.title,
         description:
-          error instanceof Error ? error.message : 'Failed to send message',
+          error instanceof Error
+            ? error.message
+            : strings.contact.submitToast.error.description,
         variant: 'error',
       });
     }
@@ -97,7 +101,7 @@ export default function Contact() {
                     className="mb-2 block text-sm font-medium"
                     htmlFor="name"
                   >
-                    {strings.contact.formName}
+                    {strings.contact.form.name.label}
                   </label>
                   <Input
                     id="name"
@@ -105,7 +109,7 @@ export default function Contact() {
                     required
                     minLength={2}
                     name="name"
-                    placeholder={strings.contact.formNamePlaceholder}
+                    placeholder={strings.contact.form.name.placeholder}
                   />
                   {errors.name && (
                     <p className="mt-2 text-sm text-destructive">
@@ -119,13 +123,13 @@ export default function Contact() {
                     className="mb-2 block text-sm font-medium"
                     htmlFor="email"
                   >
-                    {strings.contact.formEmail}
+                    {strings.contact.form.email.label}
                   </label>
                   <Input
                     id="email"
                     type="email"
                     {...register('from')}
-                    placeholder={strings.contact.formEmailPlaceholder}
+                    placeholder={strings.contact.form.email.placeholder}
                   />
                   {errors.from && (
                     <p className="mt-2 text-sm text-destructive">
@@ -139,7 +143,7 @@ export default function Contact() {
                     className="mb-2 block text-sm font-medium"
                     htmlFor="message"
                   >
-                    {strings.contact.formMessage}
+                    {strings.contact.form.message.label}
                   </label>
                   <Textarea
                     id="message"
@@ -147,7 +151,7 @@ export default function Contact() {
                     required
                     minLength={10}
                     name="message"
-                    placeholder={strings.contact.formMessagePlaceholder}
+                    placeholder={strings.contact.form.message.placeholder}
                     rows={5}
                   />
                   {errors.message && (
@@ -160,7 +164,7 @@ export default function Contact() {
 
               <Button className="w-full" disabled={isSubmitting} type="submit">
                 {isSubmitting ? (
-                  <>Sending...</>
+                  <>{strings.contact.submitLoading}</>
                 ) : (
                   <>
                     <SendIcon className="mr-2 size-4" />

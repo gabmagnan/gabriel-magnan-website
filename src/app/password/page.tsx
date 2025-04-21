@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { COOKIES_ACCESS_PASSWORD } from '@/env-constants';
+import { strings } from '@/translations/strings';
 import {
   fadeInUpAnimation,
   staggerContainerAnimation,
@@ -50,9 +51,11 @@ export default function Password() {
               <LockIcon className="size-8 text-primary" />
             </div>
           </div>
-          <h1 className="text-4xl font-bold tracking-tight">Protected Area</h1>
+          <h1 className="text-4xl font-bold tracking-tight">
+            {strings.password.title}
+          </h1>
           <p className="text-xl text-muted-foreground">
-            Please enter the password to continue
+            {strings.password.description}
           </p>
         </motion.div>
 
@@ -61,14 +64,14 @@ export default function Password() {
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="space-y-2">
                 <label className="text-sm font-medium" htmlFor="password">
-                  Password
+                  {strings.password.form.password.label}
                 </label>
                 <div className="relative">
                   <Input
                     required
                     className="pr-10"
                     id="password"
-                    placeholder="Enter password"
+                    placeholder={strings.password.form.password.placeholder}
                     type={showPassword ? 'text' : 'password'}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -89,11 +92,11 @@ export default function Password() {
 
               <Button className="w-full" disabled={isSubmitting} type="submit">
                 {isSubmitting ? (
-                  <>Verifying...</>
+                  <>{strings.password.submitLoading}</>
                 ) : (
                   <>
                     <KeyIcon className="mr-2 size-4" />
-                    Access
+                    {strings.password.submitButton}
                   </>
                 )}
               </Button>

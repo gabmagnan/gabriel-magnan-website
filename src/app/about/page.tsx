@@ -2,11 +2,12 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { BriefcaseIcon, LinkedinIcon, Users2Icon } from 'lucide-react';
 import profile_picture from '$/assets/profile_picture.webp';
+import { profiles } from '@/app/about/_data/profiles';
 import { skills } from '@/app/about/_data/skills';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
+import { strings } from '@/translations/strings';
 import { type TSkill } from '@/types/skill';
 import {
   fadeInUpAnimation,
@@ -14,48 +15,6 @@ import {
   staggerContainerAnimation,
 } from '@/utils/animations';
 import { formatDescription } from '@/utils/utils';
-
-const backgroundText =
-  'I am a full-stack engineer with <strong class="font-bold text-black dark:text-white">5 years of experience</strong> in developing scalable web applications. ' +
-  ' My employment history scales across multiple settings; from working for a large enterprise, to creating my own' +
-  ' company, and to most recently working in a fast-paced environment at a startup.' +
-  ' My focus is centered around creating <strong class="font-bold text-black dark:text-white">modern solutions</strong>' +
-  ' with <strong class="font-bold text-black dark:text-white">robust backend</strong> and <strong class="font-bold' +
-  ' text-black dark:text-white">seamless user experience.</strong> ' +
-  ' Most people would describe me as <strong class="font-bold text-black dark:text-white">professional, curious,' +
-  ' logical, and ambitious</strong>. I collaborate efficiently with' +
-  ' diverse teams, am recognised for my <strong class="font-bold text-black dark:text-white">strong coding skills.</strong>';
-
-const profiles = [
-  {
-    name: 'Malt',
-    icon: BriefcaseIcon,
-    description: 'Hire me for freelance projects',
-    url: 'https://www.malt.fr/profile/gabrielmagnan2',
-    color: 'text-rose-500',
-  },
-  {
-    name: 'Collective',
-    icon: Users2Icon,
-    description: 'View my developer collective profile',
-    url: 'https://www.collective.work/profile/gabriel-magnan',
-    color: 'text-purple-500',
-  },
-  {
-    name: 'LinkedIn',
-    icon: LinkedinIcon,
-    description: 'Connect with me professionally',
-    url: 'https://www.linkedin.com/in/gabriel-magnan/',
-    color: 'text-blue-500',
-  },
-  /*{
-    name: 'Portfolio',
-    icon: Globe2Icon,
-    description: 'Visit my personal website',
-    url: `${BASE_URL}/portfolio`,
-    color: 'text-green-500',
-  },*/
-];
 
 export default function About() {
   return (
@@ -75,14 +34,13 @@ export default function About() {
               className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-5xl font-bold leading-tight tracking-tight text-transparent md:leading-[1.2]"
               variants={fadeInUpAnimation()}
             >
-              {`Hi, I'm Gabriel Magnan 👋`}
+              {strings.about.title}
             </motion.h1>
             <motion.p
               className="text-xl leading-relaxed text-muted-foreground"
               variants={fadeInUpAnimation()}
             >
-              A passionate Software Engineer specializing in building
-              exceptional digital experiences.
+              {strings.about.description}
             </motion.p>
           </div>
         </motion.div>
@@ -122,14 +80,14 @@ export default function About() {
           className="text-center text-3xl font-bold tracking-tight"
           variants={fadeInUpAnimation()}
         >
-          About Me
+          {strings.about.firstSectionTitle}
         </motion.h2>
         <div className="xs:px-2 grid justify-center gap-8 md:grid-cols-[60%_40%] md:px-4">
           <motion.div variants={fadeInUpAnimation()}>
             <Card className="h-full space-y-4 bg-card/50 p-6 backdrop-blur-sm">
               <h3 className="text-xl font-semibold">Background</h3>
               <p className="leading-relaxed text-muted-foreground">
-                {formatDescription(backgroundText)}
+                {formatDescription(strings.about.background)}
               </p>
             </Card>
           </motion.div>
@@ -159,7 +117,7 @@ export default function About() {
           className="text-center text-3xl font-bold tracking-tight"
           variants={fadeInUpAnimation()}
         >
-          Where to Find Me
+          {strings.about.secondSectionTitle}
         </motion.h2>
         <motion.div
           className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { HomeIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { strings } from '@/translations/strings';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -23,21 +24,23 @@ export default function NotFound() {
           className="text-8xl font-bold text-muted-foreground/20"
           variants={fadeIn}
         >
-          404
+          {strings.global.error.httpCode}
         </motion.h1>
 
         <motion.div className="space-y-2" variants={fadeIn}>
-          <h2 className="text-2xl font-semibold">Page Not Found</h2>
+          <h2 className="text-2xl font-semibold">
+            {strings.global.error.title}
+          </h2>
           <p className="text-muted-foreground">
-            {`The page you're looking for doesn't exist or has been moved.`}
+            {strings.global.error.description}
           </p>
         </motion.div>
 
         <motion.div variants={fadeIn}>
           <Button asChild>
-            <Link href="/">
+            <Link href="/about">
               <HomeIcon className="mr-2 size-4" />
-              Back to Home
+              {strings.global.error.backButton}
             </Link>
           </Button>
         </motion.div>

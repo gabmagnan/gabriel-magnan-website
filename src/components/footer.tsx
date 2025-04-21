@@ -119,7 +119,7 @@ export function Footer() {
               <MoonIcon className="absolute size-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
             </Button>
             <p className="text-sm text-muted-foreground">
-              {strings.global.footer.copyright}
+              {strings.global.footer.copyright()}
             </p>
           </div>
         </div>
