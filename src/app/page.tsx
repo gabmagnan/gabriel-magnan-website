@@ -186,7 +186,7 @@ export default function About() {
             quality={75}
             sizes="(max-width: 768px) 192px, 256px"
             src={profile_picture}
-            //src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+            //translations="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
           />
           <motion.div
             animate={{ opacity: 0.1 }}

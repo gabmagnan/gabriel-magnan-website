@@ -1,7 +1,7 @@
 import { GraduationCapIcon } from 'lucide-react';
 import { education } from '@/app/resume/_data/education';
 import { Card } from '@/components/ui/card';
-import { strings } from '@/src/strings';
+import { strings } from '@/translations/strings';
 
 const Education = () => {
   return (

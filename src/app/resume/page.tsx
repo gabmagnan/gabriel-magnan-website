@@ -8,7 +8,7 @@ import Experience from '@/app/resume/_components/Experience';
 import HobbiesInterests from '@/app/resume/_components/HobbiesInterests';
 import Languages from '@/app/resume/_components/Languages';
 import { Button } from '@/components/ui/button';
-import { strings } from '@/src/strings';
+import { strings } from '@/translations/strings';
 import {
   fadeInUpAnimation,
   staggerContainerAnimation,

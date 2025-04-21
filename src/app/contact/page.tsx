@@ -10,7 +10,7 @@ import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { strings } from '@/src/strings';
+import { strings } from '@/translations/strings';
 import {
   fadeInUpAnimation,
   staggerContainerAnimation,

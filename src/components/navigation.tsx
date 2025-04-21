@@ -12,7 +12,7 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
-import { strings } from '@/src/strings';
+import { strings } from '@/translations/strings';
 import { type TRoute } from '@/types/routes';
 
 const routes: TRoute[] = [

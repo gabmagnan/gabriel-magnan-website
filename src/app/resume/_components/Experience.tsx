@@ -2,7 +2,7 @@ import { BriefcaseBusiness } from 'lucide-react';
 import { experiences } from '@/app/resume/_data/experiences';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
-import { strings } from '@/src/strings';
+import { strings } from '@/translations/strings';
 import { formatDescription } from '@/utils/utils';
 
 const Experience = () => {

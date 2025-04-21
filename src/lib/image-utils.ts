@@ -9,5 +9,6 @@ export const imageConfig = {
   quality: 75,
   minimumCacheTTL: 60,
   dangerouslyAllowSVG: false,
-  contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  contentSecurityPolicy:
+    "default-translations 'self'; script-translations 'none'; sandbox;",
 };

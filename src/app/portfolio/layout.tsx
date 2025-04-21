@@ -1,11 +1,11 @@
-import { strings } from '@/src/strings';
+import { strings } from '@/translations/strings';
 import type { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {
-  return strings.contact.metadata;
+  return strings.portfolio.metadata;
 }
 
-export default function ContactLayout({
+export default function PortfolioLayout({
   children,
 }: {
   children: React.ReactNode;

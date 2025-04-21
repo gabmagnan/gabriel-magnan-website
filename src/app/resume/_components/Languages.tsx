@@ -1,7 +1,7 @@
 import { LanguagesIcon } from 'lucide-react';
 import { languages } from '@/app/resume/_data/languages';
 import { Card } from '@/components/ui/card';
-import { strings } from '@/src/strings';
+import { strings } from '@/translations/strings';
 
 const Languages = () => {
   return (

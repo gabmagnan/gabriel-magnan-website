@@ -1,4 +1,4 @@
-import './globals.css';
+import '@/styles/globals.css';
 import { type ReactNode } from 'react';
 import { JetBrains_Mono } from 'next/font/google';
 import Head from 'next/head';
@@ -7,7 +7,7 @@ import { Footer } from '@/components/footer';
 import { Navigation } from '@/components/navigation';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
-import { strings } from '@/src/strings';
+import { strings } from '@/translations/strings';
 import type { Metadata } from 'next';
 
 const jetbrainsMono = JetBrains_Mono({

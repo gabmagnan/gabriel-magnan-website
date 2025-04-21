@@ -1,7 +1,7 @@
 import { HeartIcon } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
-import { strings } from '@/src/strings';
+import { strings } from '@/translations/strings';
 
 const hobbies: string[] = [
   'AI-Driven Innovation',
