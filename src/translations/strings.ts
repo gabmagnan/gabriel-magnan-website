@@ -128,6 +128,9 @@ export const strings = {
         description:
           'View my professional experience, skills, and qualifications. Learn about my journey as a software engineer and technical expertise.',
       },
+      alternates: {
+        canonical: new URL(`${BASE_URL}/resume`),
+      },
     },
     title: 'Resume',
     description: 'My professional journey and qualifications',
@@ -138,6 +141,7 @@ export const strings = {
     hobbiesSection: 'Hobbies & Interests',
   },
 
+  // Portfolio
   portfolio: {
     metadata: {
       title: 'Portfolio | Gabriel Magnan',
@@ -161,6 +165,9 @@ export const strings = {
         title: 'Contact | Gabriel Magnan',
         description:
           'Get in touch with me for collaboration opportunities, project inquiries, or general questions about software development.',
+      },
+      alternates: {
+        canonical: new URL(`${BASE_URL}/contact`),
       },
     },
     title: 'Contact Me',
