@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import android_logo from '$/logos/technos/android.webp';
 import aws_logo from '$/logos/technos/aws.webp';
 import docker_logo from '$/logos/technos/docker.webp';
 import express_js_logo from '$/logos/technos/expressjs.webp';
@@ -10,6 +11,7 @@ import gitlab_logo from '$/logos/technos/gitlab.webp';
 import google_cloud_logo from '$/logos/technos/google-cloud.webp';
 import google_tag_manager_logo from '$/logos/technos/google-tag-manager.webp';
 import graphql_logo from '$/logos/technos/graphql.webp';
+import ios_logo from '$/logos/technos/ios.webp';
 import javascript from '$/logos/technos/javascript.webp';
 import mongodb_logo from '$/logos/technos/mongodb.webp';
 import mysql from '$/logos/technos/mysql.webp';
@@ -55,6 +57,8 @@ export const iconPaths = {
   firebase: firebase_logo,
   graphql: graphql_logo,
   expressjs: express_js_logo,
+  ios: ios_logo,
+  android: android_logo,
   tag_manager: google_tag_manager_logo,
 } as const;
 

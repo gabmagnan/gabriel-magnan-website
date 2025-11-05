@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { BriefcaseBusiness } from 'lucide-react';
+import { BriefcaseBusiness, ExternalLink, MapPin } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import type { TExperience } from '@/types/experience';
@@ -7,9 +7,63 @@ import { formatDescription } from '@/utils/utils';
 
 const experience: TExperience[] = [
   {
+    title: 'Fullstack Web Software Developer',
+    company: 'Dialogue Healthcare Technologies',
+    period: 'July 2025 - Present',
+    location: 'Montreal, QC, Canada',
+    website: 'dialogue.co',
+    description:
+      '<div class="mt-0">• Integrated and maintained new healthcare features across Dialogue\'s platform, improving' +
+      ' <strong class="font-bold text-black dark:text-white">performance and reliability</strong> for <strong' +
+      ' class="font-bold text-black dark:text-white">millions of users across Canada.</strong>\n</div>' +
+      '<div class="mt-3">• Enhanced user experience across <strong class="font-bold text-black' +
+      ' dark:text-white">web, Android, and iOS platforms</strong> by developing and refining core features of' +
+      ' Dialogue apps using <strong class="font-bold text-black dark:text-white">React</strong> and <strong' +
+      ' class="font-bold text-black dark:text-white">TypeScript.</strong>\n</div>' +
+      '<div class="mt-3">• Optimized cross-platform UI components to deliver a <strong class="font-bold' +
+      ' text-black dark:text-white">consistent, intuitive, and responsive interface</strong> for patients and' +
+      ' healthcare professionals.</div>',
+    technologies: [
+      {
+        name: 'React.js',
+        iconName: 'reactjs',
+      },
+      {
+        name: 'TypeScript',
+        iconName: 'typescript',
+      },
+      {
+        name: 'JavaScript',
+        iconName: 'javascript',
+      },
+      {
+        name: 'React Native',
+        iconName: 'react_native',
+      },
+      {
+        name: 'iOS',
+        iconName: 'ios',
+      },
+      {
+        name: 'Android',
+        iconName: 'android',
+      },
+      {
+        name: 'MySQL',
+        iconName: 'mysql',
+      },
+      {
+        name: 'GitHub',
+        iconName: 'github',
+      },
+    ],
+  },
+  {
     title: 'Full Stack Web Developer',
     company: 'ArtMajeur by YourArt',
-    period: '2022 - Present',
+    period: 'October 2022 - June 2025',
+    location: 'Paris, France',
+    website: 'artmajeur.com',
     description:
       '<div class="mt-0">• Contributing to the early stages of the web' +
       ' application, and participated in the development process <strong' +
@@ -86,12 +140,21 @@ const experience: TExperience[] = [
         name: 'GraphQL',
         iconName: 'graphql',
       },
+      {
+        name: 'iOS',
+        iconName: 'ios',
+      },
+      {
+        name: 'Android',
+        iconName: 'android',
+      },
     ],
   },
   {
     title: 'CEO/Co-founder',
     company: 'Gravity Agency',
     period: '2022',
+    location: 'Paris, France',
     description:
       '<div class="mt-0">• <strong class="font-bold text-black dark:text-white">Engineered large-scale web' +
       ' solutions</strong> for clients with millions of users, delivering seamless, high-performance experience and' +
@@ -134,6 +197,7 @@ const experience: TExperience[] = [
     title: 'CEO/Co-founder',
     company: 'Bet Trends',
     period: '2019-2022',
+    location: 'Paris, France',
     description:
       '<div class="mt-0">• <strong class="font-bold text-black dark:text-white">Designed and launched</strong> the' +
       ' “Bet Trends” iOS/Android app using <strong class="font-bold text-black dark:text-white">Flutter</strong>, ' +
@@ -182,11 +246,30 @@ const Experience = () => {
         {experience.map((job, index) => (
           <Card key={index} className="bg-card/50 p-6 backdrop-blur-sm">
             <div className="space-y-5">
-              <div>
-                <h3 className="text-xl font-semibold">{job.title}</h3>
-                <p className="text-muted-foreground">
-                  {job.company} • {job.period}
-                </p>
+              <div className="space-y-1">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold">{job.title}</h3>
+                    <p className="text-muted-foreground">
+                      {job.company} • {job.period}
+                    </p>
+                    <p className="flex items-center gap-1 text-sm text-muted-foreground">
+                      <MapPin className="size-3" />
+                      {job.location}
+                    </p>
+                  </div>
+                  {job.website && (
+                    <a
+                      className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                      href={`https://${job.website}`}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      {job.website}
+                      <ExternalLink className="size-3" />
+                    </a>
+                  )}
+                </div>
               </div>
               <p className="whitespace-pre-line text-muted-foreground">
                 {formatDescription(job.description)}

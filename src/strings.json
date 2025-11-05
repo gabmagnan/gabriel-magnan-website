@@ -70,14 +70,6 @@
     "profiles": {
       "title": "Where to Find Me",
       "items": {
-        "malt": {
-          "name": "Malt",
-          "description": "Hire me for freelance projects"
-        },
-        "collective": {
-          "name": "Collective",
-          "description": "View my developer collective profile"
-        },
         "linkedin": {
           "name": "LinkedIn",
           "description": "Connect with me professionally"
