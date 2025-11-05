@@ -24,6 +24,8 @@ export type TSkillName =
   | 'PHP'
   | 'Firebase'
   | 'GraphQL'
+  | 'iOS'
+  | 'Android'
   | 'Tag Manager';
 
 export type TSkill = {
