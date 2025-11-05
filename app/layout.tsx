@@ -56,7 +56,6 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    alternateLocale: ['fr_FR', 'es_ES'],
     url: BASE_URL,
     title: 'Gabriel Magnan | Software Engineer',
     description:
@@ -82,11 +81,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: BASE_URL,
-    languages: {
-      'en-US': BASE_URL,
-      'fr-FR': `${BASE_URL}/fr`,
-      'es-ES': `${BASE_URL}/es`,
-    },
   },
   robots: {
     index: true,

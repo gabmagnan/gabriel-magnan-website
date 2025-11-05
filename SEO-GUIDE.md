@@ -17,7 +17,7 @@ This document outlines all the SEO best practices that have been implemented on 
 
 - ✅ OG title, description, and type
 - ✅ OG images (1200x630px recommended)
-- ✅ OG locale and alternate locales
+- ✅ OG locale (en_US)
 - ✅ Site name
 - ✅ Canonical URLs
 
@@ -64,10 +64,9 @@ This document outlines all the SEO best practices that have been implemented on 
 - ✅ App shortcuts for key pages
 - ✅ Categories and orientation
 
-### 8. **Canonical URLs & Alternates**
+### 8. **Canonical URLs**
 
 - ✅ Canonical URLs on all pages
-- ✅ Language alternates (en, fr, es)
 - ✅ Proper URL structure
 
 ### 9. **Navigation & Breadcrumbs**

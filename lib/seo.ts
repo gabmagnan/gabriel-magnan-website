@@ -128,16 +128,6 @@ export function generateStructuredData() {
         name: 'English',
         alternateName: 'en',
       },
-      {
-        '@type': 'Language',
-        name: 'French',
-        alternateName: 'fr',
-      },
-      {
-        '@type': 'Language',
-        name: 'Spanish',
-        alternateName: 'es',
-      },
     ],
   };
 
@@ -152,7 +142,7 @@ export function generateStructuredData() {
       '@type': 'Person',
       name: 'Gabriel Magnan',
     },
-    inLanguage: ['en', 'fr', 'es'],
+    inLanguage: 'en',
   };
 
   const organizationSchema = {
