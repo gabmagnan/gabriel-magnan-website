@@ -1,15 +1,20 @@
-import type { Metadata } from 'next';
+import { generateMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = generateMetadata({
   title: 'Portfolio',
   description:
-    'Explore my latest projects and technical achievements. View a showcase of web applications, software solutions, and development work.',
-  openGraph: {
-    title: 'Portfolio | Gabriel Magnan',
-    description:
-      'Explore my latest projects and technical achievements. View a showcase of web applications, software solutions, and development work.',
-  },
-};
+    "Explore Gabriel Magnan's portfolio of software projects. View featured web applications, full-stack solutions, and technical achievements using React, Next.js, TypeScript, and modern web technologies.",
+  path: '/portfolio',
+  keywords: [
+    'Portfolio',
+    'Projects',
+    'Web Applications',
+    'Software Projects',
+    'React Projects',
+    'Next.js Applications',
+    'Full Stack Projects',
+  ],
+});
 
 export default function PortfolioLayout({
   children,

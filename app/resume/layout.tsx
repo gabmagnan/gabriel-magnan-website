@@ -1,15 +1,20 @@
-import type { Metadata } from 'next';
+import { generateMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = generateMetadata({
   title: 'Resume',
   description:
-    'View my professional experience, skills, and qualifications. Learn about my journey as a software engineer and technical expertise.',
-  openGraph: {
-    title: 'Resume | Gabriel Magnan',
-    description:
-      'View my professional experience, skills, and qualifications. Learn about my journey as a software engineer and technical expertise.',
-  },
-};
+    'Professional resume of Gabriel Magnan, a full-stack software engineer with 5 years of experience. View work experience, technical skills, education, and professional qualifications.',
+  path: '/resume',
+  keywords: [
+    'Resume',
+    'CV',
+    'Professional Experience',
+    'Work History',
+    'Skills',
+    'Education',
+    'Qualifications',
+  ],
+});
 
 export default function ResumeLayout({
   children,

@@ -3,11 +3,12 @@ import { type ReactNode } from 'react';
 import { JetBrains_Mono } from 'next/font/google';
 import Head from 'next/head';
 import { Analytics } from '@vercel/analytics/react';
+import Schema from '@/app/schema';
 import { Footer } from '@/components/footer';
 import { Navigation } from '@/components/navigation';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
-import { BASE_URL } from '@/env-constants';
+import { BASE_URL, GOOGLE_VERIFICATION_CODE } from '@/env-constants';
 import type { Metadata } from 'next';
 
 const jetbrainsMono = JetBrains_Mono({
@@ -25,24 +26,41 @@ export const metadata: Metadata = {
     template: '%s | Gabriel Magnan',
   },
   description:
-    'Professional portfolio of Gabriel Magnan, a passionate software engineer specializing in web development and creating exceptional digital experiences.',
+    'Professional portfolio of Gabriel Magnan, a full-stack software engineer with 5 years of experience specializing in modern web development, React, Next.js, and building scalable applications.',
   keywords: [
+    'Gabriel Magnan',
     'Software Engineer',
     'Web Developer',
     'Full Stack Developer',
     'React',
+    'Next.js',
     'Node.js',
     'TypeScript',
+    'JavaScript',
+    'Python',
+    'AWS',
+    'Docker',
+    'MongoDB',
+    'GraphQL',
+    'Firebase',
   ],
-  authors: [{ name: 'Gabriel Magnan' }],
+  authors: [{ name: 'Gabriel Magnan', url: BASE_URL }],
   creator: 'Gabriel Magnan',
+  publisher: 'Gabriel Magnan',
+  category: 'technology',
+  formatDetection: {
+    telephone: false,
+    email: false,
+    address: false,
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
+    alternateLocale: ['fr_FR', 'es_ES'],
     url: BASE_URL,
     title: 'Gabriel Magnan | Software Engineer',
     description:
-      'Professional portfolio of Gabriel Magnan, a passionate software engineer specializing in web development.',
+      'Professional portfolio of Gabriel Magnan, a full-stack software engineer with 5 years of experience specializing in modern web development and scalable applications.',
     siteName: 'Gabriel Magnan Portfolio',
     images: [
       {
@@ -50,6 +68,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: 'Gabriel Magnan - Software Engineer',
+        type: 'image/jpeg',
       },
     ],
   },
@@ -57,12 +76,32 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Gabriel Magnan | Software Engineer',
     description:
-      'Professional portfolio of Gabriel Magnan, a passionate software engineer specializing in web development.',
+      'Professional portfolio of Gabriel Magnan, a full-stack software engineer specializing in modern web development.',
     creator: '@gabrielmagnan',
     images: ['/images/og-image.jpg'],
   },
   alternates: {
     canonical: BASE_URL,
+    languages: {
+      'en-US': BASE_URL,
+      'fr-FR': `${BASE_URL}/fr`,
+      'es-ES': `${BASE_URL}/es`,
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: GOOGLE_VERIFICATION_CODE,
   },
 };
 
@@ -87,6 +126,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta content="#000000" name="theme-color" />
       </Head>
       <body className={`${jetbrainsMono.variable} font-mono`}>
+        <Schema />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
