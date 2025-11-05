@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { BriefcaseIcon, LinkedinIcon, Users2Icon } from 'lucide-react';
+import { LinkedinIcon } from 'lucide-react';
 import profile_picture from '$/assets/profile_picture.webp';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
@@ -42,6 +42,14 @@ const skills: TSkill[] = [
   {
     name: 'Flutter',
     iconName: 'flutter',
+  },
+  {
+    name: 'iOS',
+    iconName: 'ios',
+  },
+  {
+    name: 'Android',
+    iconName: 'android',
   },
   {
     name: 'Express.js',
@@ -114,33 +122,12 @@ const backgroundText =
 
 const profiles = [
   {
-    name: 'Malt',
-    icon: BriefcaseIcon,
-    description: 'Hire me for freelance projects',
-    url: 'https://www.malt.fr/profile/gabrielmagnan2',
-    color: 'text-rose-500',
-  },
-  {
-    name: 'Collective',
-    icon: Users2Icon,
-    description: 'View my developer collective profile',
-    url: 'https://www.collective.work/profile/gabriel-magnan',
-    color: 'text-purple-500',
-  },
-  {
     name: 'LinkedIn',
     icon: LinkedinIcon,
     description: 'Connect with me professionally',
     url: 'https://www.linkedin.com/in/gabriel-magnan/',
     color: 'text-blue-500',
   },
-  /*{
-    name: 'Portfolio',
-    icon: Globe2Icon,
-    description: 'Visit my personal website',
-    url: `${BASE_URL}/portfolio`,
-    color: 'text-green-500',
-  },*/
 ];
 
 export default function Home() {
