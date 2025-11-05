@@ -1,15 +1,19 @@
-import type { Metadata } from 'next';
+import { generateMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = generateMetadata({
   title: 'Contact',
   description:
-    'Get in touch with me for collaboration opportunities, project inquiries, or general questions about software development.',
-  openGraph: {
-    title: 'Contact | Gabriel Magnan',
-    description:
-      'Get in touch with me for collaboration opportunities, project inquiries, or general questions about software development.',
-  },
-};
+    'Contact Gabriel Magnan for software development opportunities, project collaborations, consulting inquiries, or questions about web development and full-stack engineering.',
+  path: '/contact',
+  keywords: [
+    'Contact',
+    'Get in Touch',
+    'Hire',
+    'Collaboration',
+    'Consulting',
+    'Project Inquiry',
+  ],
+});
 
 export default function ContactLayout({
   children,

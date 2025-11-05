@@ -47,7 +47,23 @@ npm install
 yarn install
 ```
 
-3. Start the development server:
+3. Create a `.env.local` file in the root directory with the following variables:
+
+```bash
+# Access Control
+ACCESS_PASSWORD=your_access_password_here
+
+# Email Configuration (Gmail SMTP)
+GMAIL_USER=your_email@gmail.com
+GMAIL_PASS=your_gmail_app_password
+
+# SEO - Google Search Console
+# Get this from: https://search.google.com/search-console
+# Choose "HTML tag" verification method and copy the code
+GOOGLE_VERIFICATION_CODE=your_google_verification_code_here
+```
+
+4. Start the development server:
 
 ```bash
 npm run dev
@@ -55,7 +71,7 @@ npm run dev
 yarn dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Building for Production
 
